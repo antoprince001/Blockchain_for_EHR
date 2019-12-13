@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Home Page</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <style>
+    .container {
+      position: relative;
+      font-family: Arial;
+    }
+
+    .text-block {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: black;
+      color: white;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .bottom-left {
+      position: absolute;
+      bottom: 8px;
+      left: 16px;
+    }
+
+    .button {
+      border-radius: 4px;
+      background-color: #f4511e;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 28px;
+      padding: 20px;
+      width: 200px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .button:hover span {
+      padding-right: 25px;
+    }
+
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+
+    p,
+    ul {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: xx-large;
+      letter-spacing: 4px;
+      font-style: oblique;
+      line-height: 200%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="" style='font-size: 40px;'>PATREC</a>
+    
+
+  
+  <div>
+    <a href="/domain"><button class="button">Sign in</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/signup"><button class="button">Sign up</button></a>
+  </div>
+</nav>
+  <br><br><br><br>
+
+
+
+  <h1>
+    <center><b>WELCOME TO PATREC CHAIN </b></center>
+  </h1>
+  <br><br>
+  <div id='bgpic'>
+    <img src="/static/img/pic.jpeg" class="d-block w-100" alt="image" height="500">
+  </div>
+  <br><br>
+  <br><br>
+
+
+  <div class="Resource">
+    <center>
+      <h1><i>What is <b>
+            <font color="blue">PATREC CHAIN?</font></i></b>
+      </h1>
+      <br><br>
+      <p id="intertext">
+        PATREC is a <font color='green'><i>BLOCKCHAIN</i></font> based extended<br>
+        <font color='green'><i>Electronic Health Record(EHR) </i></font><br> that facilitates
+        intuitive formatting and enhanced interaction of health records that can be transferred among health centers.
+        <br>We aim at placing the patient in control of their medical data, giving them the power to share the single
+        most,comprehensive version of their record.<br><br>
+      </p>
+      <br><br>
+
+    </center>
+
+  </div>
+
+  <div class="proscons"
+    style="background-image: url('/static/img/bgimg.jpeg'); background-size: auto; background-repeat: no-repeat;">
+    <br><br>
+    <center>
+      <h1>Features of <font color="blue" style="text-shadow: 30px;">PATREC CHAIN</font>
+      </h1>
+      <div class="prostext">
+        <br><br>
+        <div class="card" style="width: 50rem;">
+          <img src="/static/img/prop.PNG" class="card-img-top" alt="...">
+
+        </div>
+    </center>
+    <pre>
+
+
+  </pre>
+
+  </div>
+  </div>
+
+  <br><br><br><br>
+  <div>
+    <center>
+      <h1>MEDICAL NEWS</h1>
+    </center>
+    <br><br><br><br>
+    <div class="row">
+      {%for i in range(1,17)%}&nbsp; {%endfor%}
+      <div class="column -sm">
+        <div class="card" style="width: 18rem; box-shadow: inset;">
+          <img src="/static/img/newsthree.jpg" class="card-img-top" alt="News" height="200">
+          <div class="card-body">
+            <h5 class="card-title" style="line-height: normal;">Securing the health environment </h5>
+            <br>
+            <br><br>
+            <center><a href="https://www.healthcareitnews.com/news/taking-cybersecurity-notch-4-steps-shut-down-threats"
+                class="btn btn-primary" target="_blank">Read more..</a></center>
+          </div>
+        </div>
+      </div>{%for i in range(1,17)%}&nbsp; {%endfor%}
+      <div class="column -sm">
+        <div class="card" style="width: 18rem;">
+          <img src="/static/img/newstwo.jpg" class="card-img-top" alt="News" height="200">
+          <div class="card-body">
+            <h5 class="card-title" style="line-height: normal;">Using VR to help patients envision their care
+            </h5>
+            <br>
+            <br><br>
+            <center><a href="https://www.healthcareitnews.com/video/using-vr-help-patients-envision-their-care"
+                class="btn btn-primary" target="_blank">Read more..</a></center>
+
+          </div>
+        </div>
+      </div>{%for i in range(1,17)%}&nbsp; {%endfor%}
+      <div class="column -sm">
+        <div class="card" style="width: 18rem;">
+          <img src="/static/img/newsone.jpg" class="card-img-top" alt="News" height="200">
+          <div class="card-body">
+            <h5 class="card-title" style="line-height: normal;">
+              Senator urges to combat racial bias in AI algorithms
+            </h5>
+            <br>
+            <br><br>
+            <center><a
+                href="https://www.healthcareitnews.com/news/senators-urge-health-orgs-combat-racial-bias-ai-algorithms"
+                class="btn btn-primary" target="_blank">Read more..</a></center>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <br><br><br><br><br><br>
+  <div class="proscons" style="background-color:#343a40; background-size: auto; background-repeat: no-repeat;">
+    <br><br>
+    <center>
+      <h3>
+        <font color='white' style="text-decoration-color: #204379;">To begin using PATREC CHAIN </font>
+      </h3>
+      <br><br>
+      <div>
+        <a href="/domain"><button class="button">Sign in</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/signup"><button class="button">Sign up</button></a>
+      </div>
+      <pre>
+
+
+
+  </pre>
+    </center>
+  </div>
+  </div>
+
+
+
+
+
+</body>
+
+</html>

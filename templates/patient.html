@@ -1,0 +1,139 @@
+<html>
+
+<head>
+  <title> REGISTER HERE </title>
+  <script type="text/javascript">
+  </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <style>
+    #header {
+      background: url("https://static1.squarespace.com/static/578f3f1d15d5db7814d05191/57ab2d3dbebafbb0ac641776/58cfca91d1758e5d6d939333/1527878894167/01.jpg?format=1500w");
+    }
+  </style>
+
+  <style>
+    body,
+    html {
+      background-image: url("https://cdn5.vectorstock.com/i/thumb-large/39/24/pale-gray-background-with-chaotic-lines-and-spots-vector-17733924.jpg");
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+    }
+  </style>
+
+  <style>
+    .display-4 {
+      color: #FFFFFF;
+    }
+  </style>
+
+</head>
+
+<body class="bg">
+  <nav class="navbar bg-dark navbar-dark">
+    <div class="container">
+      <a href="/" class="navbar-brand"><b>HOME</b></a>
+    </div>
+  </nav>
+
+  <section id="header" class="jumbotron text-center">
+    <h2 class="display-4">SIGN UP TO BECOME A MEMBER OF PATREC-CHAIN</h2>
+  </section>
+
+  <form action='/patcreate' method="POST">
+    <div class="container">
+      <div class="d-flex justify-content-center align-items-center container ">
+        <div class="form-group">
+          <label for="usr">FIRST NAME</label>
+          <input type="text" class="form-control" name="usr">
+        </div>
+        <div class="form-group">
+          <label for="lsn">LAST NAME</label>
+          <input type="text" class="form-control" name="lsn">
+        </div>
+        <div class="form-group">
+          <label for="pwd">PASSWORD</label>
+          <input type="password" class="form-control" name="pwd">
+        </div>
+        <div class="form-group">
+          <label for="gen"> GENDER </label>
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="defaultUnchecked" name="male">
+            <label class="custom-control-label" for="defaultUnchecked">MALE</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="defaultChecked" name="female" checked>
+            <label class="custom-control-label" for="defaultChecked">FEMALE</label>
+          </div>
+        </div>
+
+        <div class="md-form">
+          <label for="date-picker-example">DATE OF BIRTH</label>
+          <input placeholder="Selected date" type="date" name="dob" class="form-control datepicker">
+        </div>
+
+        <div class="form-group">
+          <label for="age">AGE</label>
+          <input type="text" class="form-control" name="age">
+        </div>
+
+        <div class="form-group">
+          <label for="add">ADDRESS</label>
+          <input type="text" class="form-control" name="add">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">PHONE </label>
+          <input type="text" class="form-control" name="ph">
+        </div>
+
+        <div class="form-group">
+          <label for="Aadhar">ENTER YOUR 12 DIGIT AADHAAR PIN</label>
+          <input type="text" class="form-control" name="ad">
+        </div>
+
+        <div class="form-group">
+          <label for="inputUserName" class="control-label">EMAIL</label>
+          <input type="email" class="form-control" name="inputUserName" aria-labelledby="emailnotification">
+        </div>
+
+        <div class="form-group">
+          <label for="gen"> ARE YOU CURRENTLY UNDER ANY MEDICATION ? </label>
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="yes" name="yes">
+            <label class="custom-control-label" for="true">Yes</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="no" name="no">
+            <label class="custom-control-label" for="fakse">No</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="txt">IF SO SPECIFY !</label>
+          <textarea class="form-control rounded-0" id="text" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <button type="submit" class="btn btn-primary">SUBMIT</button>
+      <button type="button" class="btn btn-info">RESET</button>
+    </div>
+  </form>
+</body>
+
+</html>

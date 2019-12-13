@@ -1,0 +1,261 @@
+<html>
+<head>
+  <title>details</title>
+  <script type="text/javascript">
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="design.css">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+</script>
+
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Source+Code+Pro&display=swap" rel="stylesheet">
+<style>
+    #header{
+      background: url("https://miro.medium.com/max/3200/1*71cf1ernFIGPkIgtJE12SA.jpeg");
+    }
+  </style>
+
+<style>
+  #hello{
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+  label{
+    font-family: 'Source Code Pro', monospace;
+  }
+</style>
+
+</head>
+<body>
+  <body class="bg">
+  <nav class="navbar bg-dark navbar-dark">
+    <div class="container">
+      <a href="/" class="navbar-brand"><b>HOME</b></a>
+    </div>
+  </nav>
+
+  <section id="header" class="jumbotron text-center">
+    <h2 class="display-4">.</h2>
+  </section>
+
+  <form id="hello">
+  <div class="container">
+   <div class="d-flex justify-content-center align-items-center container ">  
+
+          <div class="form-group">
+            <label for="name"> NAME OF THE PROPOSER : Mr/Mrs</label>
+            <input type="text" id="name">
+          </div>
+          <div class="form-group">
+        <label for="gen"> GENDER </label>
+           <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+                <label class="custom-control-label" for="defaultUnchecked">MALE</label>
+            </div>
+
+             <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios" checked>
+                <label class="custom-control-label" for="defaultChecked">FEMALE</label>
+            </div>
+      </div>
+
+      <div class="md-form">
+        <label for="date-picker-example">DATE OF BIRTH</label>
+         <input placeholder="Selected date" type="date" id="date-picker-example">  
+      </div>
+
+      <div class="form-group">
+          <label for="age">AGE</label>
+          <input type="text" id="age">
+      </div>
+
+      <b> OCCUPATION </b> <br>
+        <select name="cars">
+          <option value="volvo">Professional/administrative</option>
+           <option value="saab">Business/Traders</option>
+          <option value="fiat">Hospitality / support workers</option>
+          <option value="audi">Farmers / agricultral workers</option>
+        <option value="volvo"> Police / Para Military</option>
+        <option value="saab"> Retired Persons</option>
+        <option value="fiat">Students </option>
+          <option value="audi">Others</option>
+          </select><br><br>
+
+           <div class="form-group">
+             <label for="add">ADDRESS</label>
+               <input type="text" class="form-control" id="add">
+          </div>
+
+           <div class="form-group">
+              <label for="phone">PHONE </label>
+              <input type="text" id="ph">
+          </div>
+
+          <div class="form-group">
+              <label for="Aadhar">ENTER YOUR 12 DIGIT AADHAAR PIN</label>
+              <input type="text"  id="ad">
+           </div>
+
+            <div class="form-group">
+            <label for="name"> FAMILY PHYSICIAN </label>
+            <input type="text" id="name">
+          </div>
+
+          <div calss="form-group">
+          <label for="gen"> ARE YOU AT PRESENT OR IN THE PAST COVERED UNDER ANY OTHER INSURANCE ? </label>
+           <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="yes" name="yes">
+                <label class="custom-control-label" for="true">Yes</label>
+            </div>
+
+             <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="no" name="no">
+                <label class="custom-control-label" for="false">No</label>
+            </div>
+          </div>
+
+        <div class="form-group">
+           <label for="txt">IF SO SPECIFY !</label>
+            <textarea class="form-control rounded-0" id="text" rows="5"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="name"> DETAILS OF PERSON TO BE INSURED </label>
+          </div>
+
+          <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">NAME OF MEMBERS</th>
+      <th scope="col">DATE OF BIRTH</th>
+      <th scope="col">AGE</th>
+      <th scope="col">RELATION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><div class="form-group">
+            <label for="name"></label>
+            <input type="text" id="name">
+          </div></th>
+      <td><div class="form-group">
+            <label for="date"></label>
+            <input type="text" id="date">
+          </div></td>
+      <td><div class="form-group">
+            <label for="age"></label>
+            <input type="text" id="age">
+          </div></td>
+      <td><div class="form-group">
+            <label for="rel"></label>
+            <input type="text" id="rel">
+          </div></td>
+    </tr>
+    <tr>
+      <th scope="row"><div class="form-group">
+            <label for="name"></label>
+            <input type="text" id="name">
+          </div></th>
+      <td><div class="form-group">
+            <label for="date"></label>
+            <input type="text" id="date">
+          </div></td>
+      <td><div class="form-group">
+            <label for="age"></label>
+            <input type="text" id="age">
+          </div></td>
+      <td><div class="form-group">
+            <label for="rel"></label>
+            <input type="text" id="rel">
+          </div></td>
+    </tr>
+    <tr>
+      <th scope="row"><div class="form-group">
+            <label for="name"></label>
+            <input type="text" id="name">
+          </div></th>
+      <td><div class="form-group">
+            <label for="date"></label>
+            <input type="text" id="date">
+          </div></td>
+      <td><div class="form-group">
+            <label for="age"></label>
+            <input type="text" id="age">
+          </div></td>
+      <td><div class="form-group">
+            <label for="rel"></label>
+            <input type="text" id="rel">
+          </div></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+ <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">S.NO</th>
+      <th scope="col">RELATIONSHIP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="yes" name="yes">
+                <label class="custom-control-label" for="true">MOTHER/FATHER</label>
+            </div></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td><div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="yes" name="yes">
+                <label class="custom-control-label" for="true">SPOUSE/SELF</label>
+            </div></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td><div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="yes" name="yes">
+                <label class="custom-control-label" for="true">SON/DAUGHTER</label>
+            </div></td>
+    </tr>
+  </tbody>
+</table>
+
+      <div class="form-group">
+            <label for="name"> NAME OF THE NOMINEE : Mr/Mrs/Miss</label>
+            <input type="text" id="name">
+          </div>
+
+
+      <div class="form-group">
+            <label for="rel"> RELATIONSHIP</label>
+            <input type="text" id="rel">
+          </div>
+        </div>
+      </div>
+
+        <div class="container">
+          <div class="form-group">
+            <label for="name"> DECLARATION</label>
+            <p><h4> I hereby that the persons proposed for insurance are my family members<br>
+             The above statements are true and complete in all respects to the best of my knowledge and authorized to propose on behalf of others</h4><br></p>
+          </div>
+        </div>
+            
+      <div class="container">
+            <button type="button" class="btn btn-primary">SUBMIT</button>
+            <button type="button" class="btn btn-info">RESET</button>
+        </div>
+
+</form>
+</body>
+</html> 

@@ -1,0 +1,1 @@
+Html layouts should be in templates folder for peoper working through flask.

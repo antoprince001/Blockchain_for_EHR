@@ -2,7 +2,8 @@ from flask import Flask,render_template,request,url_for,session
 import json,sqlite3
 from time import time
 from hashlib import sha256
-import datetime,time
+import datetime,time,pymongo
+from passlib.context import CryptContext
 
 #session['user']='Genesis'
 '''Blockchain=[{
@@ -20,7 +21,7 @@ import datetime,time
     }]'''
 
 index=2
-Blockchain=[{
+'''Blockchain=[{
     'first':'Genesis',
     'second':'Block',
     'patientid':'00000',
@@ -60,14 +61,49 @@ patientrec=[
     {
 
     }
-]
+]'''
 
 login_status=0
 app= Flask(__name__)
+app.secret_key = 'PATREC Authentication'
+sess=''
 
 
 
+#Password encryption scheme
+pwd_context = CryptContext(
+        schemes=["pbkdf2_sha256"],
+        default="pbkdf2_sha256",
+        pbkdf2_sha256__default_rounds=30000
+)
 
+def encrypt_password(password):
+    return pwd_context.encrypt(password)
+
+def check_encrypted_password(password, hashed):
+    return pwd_context.verify(password, hashed)
+
+#Mongodb setup
+myclient=pymongo.MongoClient()
+
+mydb=myclient["Blockchain"]
+
+mycol=mydb["Blockhead"]
+
+hashset=[]
+ind=-1
+patdoc= mycol.find()
+for x in patdoc:
+    hashset.append(x['hash'])
+    ind=ind+1
+
+class index:
+    index=ind
+    def getindex(self):
+        self.index=int(self.index+1)
+        return self.index
+
+idv=index()
 
 @app.route('/')
 @app.route('/home')
@@ -90,7 +126,6 @@ def createblock():
     pulse=request.form['pulse']
     prevhash='8c91f74e15a53a94b096419a57662bef769c3f15f0bdaef4c4c2ead29430763e'
     
-    index=4
     block={
         'name':'Aathitya',
         'doc':doc,
@@ -147,42 +182,64 @@ def patient():
 def patientlog():
     return render_template('patientlog.html')
 
+@app.route('/patientver',methods=['POST'])
+def patientverify():
+    userid=request.form['PID']
+    pwd=request.form['pwd']
+    patquery = { "_id": userid }
+    
+    patdoc= mycol.find(patquery)
+    for x in patdoc:
+        if check_encrypted_password(pwd,x['passwd']):
+            sess = userid
+            return render_template('patdash.html')
+
+    return render_template('patientlog.html')
+
 @app.route('/patcreate',methods=['POST'])
 def patcreate():
     block_data = request.form['usr']
     first=request.form['usr']
-    second=request.form['lsn'],
-    passwd= request.form['pwd'],
-    age=request.form['age'],
-    addres=request.form['add'],
+    second=request.form['lsn']
+    passwd= request.form['pwd']
+    passwd=encrypt_password(passwd)
+    age=request.form['age']
+    addres=request.form['add']
     #aadhar=request.form['Aadhar']
-    #ts=time.time()
-    #st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    ts=time.time()
+    st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
     block={
-    #'timestamp':st,
+    'timestamp':st,
     'first': first,
     'second':second,
     'passwd': passwd,
     'address':addres,
     #'aadhar':aadhar,
-    'prevhash':Blockchain[-1]['hash']
+    'prevhash':hashset[-1]
 }
     block_string = json.dumps(block, sort_keys=True) 
     hashval=sha256(block_string.encode()).hexdigest()
     #session['user']=first
+    
     block={
-    'index':Blockchain[-1]['index']+1,
-    #'timestamp':st,
+    '_id':'PAT0'+ str(idv.getindex()),
+    'timestamp':st,
     'first': first,
     'second':second,
     'passwd': passwd,
     'address':addres,
     #'aadhar':aadhar,
-    'prevhash':Blockchain[-1]['hash'],
+    'prevhash':hashset[-1],
     'hash': hashval
 }
-    Blockchain.append(block)
-    return render_template('patcreate.html',posts=Blockchain)
+    
+    hashset.append(hashval)
+    mycol.insert_one(block)
+    Blockc=[]
+    Bloc=mycol.find()
+    for i in Bloc:
+        Blockc.append(i)
+    return render_template('patcreate.html',posts=Blockc)
 
 @app.route('/patdash')
 def patdash():
@@ -190,9 +247,14 @@ def patdash():
 
 
 
-@app.route('/viewrec')
+
+@app.route('/patacc')
 def view():
-    return render_template('prevblock.html',post=Blockchain[-1])
+    patquery = { "_id": sess }
+    
+    patdoc= mycol.find_one(patquery)
+    
+    return render_template('patmyacc.html',post=patdoc)
 
 
 
@@ -244,6 +306,12 @@ def donor():
 def insure():
     return render_template('insure.html')
 
+
+
+@app.route('/logout')
+def logout():
+    sess=''
+    return render_template('domain.html')
 
 if __name__=='__main__':
     app.run(debug=True)

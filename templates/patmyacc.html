@@ -50,7 +50,7 @@
 
     <div>
 
-      <a class="navbar-brand" href="/domain">LOGOUT </button></a>
+      <a class="navbar-brand" href="/logout">LOGOUT </button></a>
     </div>
   </nav>
 
@@ -59,9 +59,8 @@
   <br>
 
   <center> <b>
-      <h1> HEAD BLOCKCHAIN RECORDS</h1>
+      <h1>RECORD  OF {{post._id}}</h1>
     </b></center><br><br>
-        {% for post in posts%}
         <center><h1>BLOCK {{post._id}}</h1>
           <table>
             <tr>
@@ -89,16 +88,9 @@
               <td>Hash</td>
               <td>{{ post.hash }}</td>
               
-            </tr>
-
-            <tr>
-                
-                
-              </tr>
-            
+            </tr>    
           </table>
           <br><br><br><br>
-          {% endfor %}
         </center>
 
 
@@ -108,3 +100,5 @@
 
 
 </html>
+
+ 

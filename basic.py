@@ -1,9 +1,11 @@
-from flask import Flask,render_template,request,url_for,session
+from flask import Flask,render_template,request,url_for,session,redirect
 import json,sqlite3
 from time import time
 from hashlib import sha256
 import datetime,time,pymongo
 from passlib.context import CryptContext
+import requests
+import os
 
 #session['user']='Genesis'
 '''Blockchain=[{
@@ -20,53 +22,9 @@ from passlib.context import CryptContext
          
     }]'''
 
-index=2
-'''Blockchain=[{
-    'first':'Genesis',
-    'second':'Block',
-    'patientid':'00000',
-    'passwd': '1234',
-    'age':0,
-    'address':'None',
-    'aadhar':000000000000,
-    'index':0,
-    'prevhash':0,
-    'hash':'8c91f74e15a53a94b096419a57662bef769c3f15f0bdaef4c4c2ead29430763e'   
-},
-{
-    'first':'Aathitya',
-    'second':'Sriram',
-    'passwd': '1234',
-    'age':18,
-    'patientid':'00001',
-    'address':'chennai',
-    'aadhar':312412451136,
-    'index':1,
-    'prevhash':'8c91f74e15a53a94b096419a57662bef769c3f15f0bdaef4c4c2ead29430763e',
-    'hash':'969464686ebce37246efb1e196c163edce036bd5c24e54adf3071972c41f997e'   
-},{
-    'first':'Abirami',
-    'second':'Somasundaram',
-    'passwd': '12324',
-    'age':18,
-    'address':'chennai',
-    'aadhar':312412451135,
-    'index':2,
-    'prevhash':'969464686ebce37246efb1e196c163edce036bd5c24e54adf3071972c41f997e',
-    'hash':'ca701d2be90ccb1d11abe7ea42528800678bc203ed982b31908fce133b66fec1'
-}
-]
-
-patientrec=[
-    {
-
-    }
-]'''
-
 login_status=0
 app= Flask(__name__)
 app.secret_key = 'PATREC Authentication'
-sess=''
 
 
 
@@ -77,6 +35,15 @@ pwd_context = CryptContext(
         pbkdf2_sha256__default_rounds=30000
 )
 
+#Sessio variables
+class sessionlog:
+    def __init__(self):
+        self.username=''
+        self.id=''
+
+sess=sessionlog()
+
+
 def encrypt_password(password):
     return pwd_context.encrypt(password)
 
@@ -84,13 +51,14 @@ def check_encrypted_password(password, hashed):
     return pwd_context.verify(password, hashed)
 
 #Mongodb setup
-myclient=pymongo.MongoClient()
+client = pymongo.MongoClient("mongodb+srv://Antony:A8939469555@blockchainehr-kpbxk.mongodb.net/test?retryWrites=true&w=majority")
 
-mydb=myclient["Blockchain"]
+mydb=client["Blockchain"]
 
 mycol=mydb["Blockhead"]
 
-hashset=[]
+
+'''hashset=[]
 ind=-1
 patdoc= mycol.find()
 for x in patdoc:
@@ -103,17 +71,17 @@ class index:
         self.index=int(self.index+1)
         return self.index
 
-idv=index()
+idv=index()'''
 
 @app.route('/')
 @app.route('/home')
 def home():
     return render_template('welcome.html')
 
-
-
+#MEDREC form creation
 @app.route('/create', methods=['POST'])
 def createblock():
+    pid=request.form['pid']
     doc= request.form['doc']
     blood= request.form['blood']
     pp= request.form['pp']
@@ -124,10 +92,16 @@ def createblock():
     ldl=request.form['ldl']
     rbc=request.form['rbc']
     pulse=request.form['pulse']
-    prevhash='8c91f74e15a53a94b096419a57662bef769c3f15f0bdaef4c4c2ead29430763e'
-    
+    myrow=mydb[pid]
+    patdoc= myrow.find()
+    ind=-1
+    for x in patdoc:
+        prev=x['hash']
+        ind=ind+1
+    ts=time.time()
+    st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
     block={
-        'name':'Aathitya',
+        '_id':pid+'REC'+str(ind+1),
         'doc':doc,
         'gluc':pp,
         'glucf':fast,
@@ -138,14 +112,16 @@ def createblock():
         'ldl':ldl,
         'rbc':rbc,
         'pulse':pulse,
-        'prev': prevhash,
-        'index':index
+        'prev': prev,
+        'timestamp':st
+
 
     }
+
     block_string = json.dumps(block, sort_keys=True) 
     hashval=sha256(block_string.encode()).hexdigest()
     block={
-        'name':'Aathitya',
+        '_id': pid+'REC'+str(ind+1),
         'doc':doc,
         'gluc':pp,
         'glucf':fast,
@@ -156,11 +132,12 @@ def createblock():
         'ldl':ldl,
         'rbc':rbc,
         'pulse':pulse,
-        'prev': prevhash,
+        'prev': prev,
         'hash':hashval,
-        'index':index
+        'timestamp':st
 
     }
+    myrow.insert_one(block)
     return render_template('newrec.html',post=block)
 
 @app.route('/domain')
@@ -191,7 +168,7 @@ def patientverify():
     patdoc= mycol.find(patquery)
     for x in patdoc:
         if check_encrypted_password(pwd,x['passwd']):
-            sess = userid
+            sess.username = userid
             return render_template('patdash.html')
 
     return render_template('patientlog.html')
@@ -208,32 +185,78 @@ def patcreate():
     #aadhar=request.form['Aadhar']
     ts=time.time()
     st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    myrow=mydb['Blockhead']
+    patdoc= myrow.find()
+    ind=-1
+    for x in patdoc:
+        prev=x['hash']
+        ind=ind+1
+    i='PAT'+ind
     block={
+    '_id':i,
     'timestamp':st,
     'first': first,
     'second':second,
     'passwd': passwd,
     'address':addres,
     #'aadhar':aadhar,
-    'prevhash':hashset[-1]
+    'prevhash':prev
 }
     block_string = json.dumps(block, sort_keys=True) 
     hashval=sha256(block_string.encode()).hexdigest()
     #session['user']=first
-    
     block={
-    '_id':'PAT0'+ str(idv.getindex()),
+    '_id':i,
     'timestamp':st,
     'first': first,
     'second':second,
     'passwd': passwd,
     'address':addres,
+    'record':i+'REC',
     #'aadhar':aadhar,
-    'prevhash':hashset[-1],
+    'prevhash':prev,
     'hash': hashval
 }
-    
-    hashset.append(hashval)
+    '''
+    ima=open(file, "rb")
+    f = ima.read()
+    b = bytearray(f)'''
+    myrow=mydb[i]
+    rec={
+        '_id':i+'REC'+'00',
+        'doc':'',
+        'gluc':0,
+        'glucf':0,
+        'serum':0,
+        'blood':0,
+        'chol': 0,
+        'thdl':0,
+        'ldl':0,
+        'rbc':0,
+        'pulse':'',
+        'prev': '0',
+
+    }
+    block_s = json.dumps(rec, sort_keys=True) 
+    hashrec=sha256(block_s.encode()).hexdigest()
+    rec={
+        '_id':i+'REC'+'00',
+        'doc':'',
+        'gluc':0,
+        'glucf':0,
+        'serum':0,
+        'blood':0,
+        'chol': 0,
+        'thdl':0,
+        'ldl':0,
+        'rbc':0,
+        'pulse':'',
+        'timestamp':'',
+        'prev': '0',
+        'hash':hashrec
+    }
+
+    myrow.insert_one(rec)
     mycol.insert_one(block)
     Blockc=[]
     Bloc=mycol.find()
@@ -250,12 +273,22 @@ def patdash():
 
 @app.route('/patacc')
 def view():
-    patquery = { "_id": sess }
+    patquery = { "_id": sess.username }
     
     patdoc= mycol.find_one(patquery)
     
     return render_template('patmyacc.html',post=patdoc)
 
+@app.route('/viewrec')
+def viewrec():
+    myrow=mydb[sess.username]
+    recs=myrow.find()
+    records=[]
+    for x in recs:
+        records.append(x)
+    records.pop(0)
+    return render_template('records.html',posts=records)
+        
 
 
 @app.route('/doctor')
@@ -269,15 +302,83 @@ def doclog():
 def docdash():
     return render_template('docdash.html')
 
+@app.route('/docver',methods=['POST'])
+def docverify():
+    nam=request.form['n']
+    ts=time.time()
+    st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    passwd= request.form['pwd']
+    passwd=encrypt_password(passwd)
+    myrow=mydb['Nodes']
+    patdoc= myrow.find()
+    ind=-1
+    for x in patdoc:
+        if(x['_id'].find('DOC')):
+            ind=ind+1
+    doc={
+        '_id':'DOC'+str(ind+1),
+        'timestamp':st,
+        'password':passwd,
+        'name':nam
+    }
+    sess.username=doc['_id']
+    myrow.insert_one(doc)
+    return render_template('docdash.html')
+
+@app.route('/doclogover',methods=['POST'])
+def doclogver():
+    userid=request.form['DID']
+    pwd=request.form['pwd']
+    patquery = { "_id": userid }
+    myrow=mydb['Nodes']
+    patdoc= myrow.find(patquery)
+    for x in patdoc:
+        if check_encrypted_password(pwd,x['password']):
+            sess.username = userid
+            return render_template('docdash.html')
+    return render_template('doctorlog.html')
+
+@app.route('/docview')
+def docview():
+    return render_template('docview.html')
 @app.route('/medrec')
 def medrec():
     return render_template('medrec.html')
 
+@app.route('/myacc')
+def myacc():
+    patquery = { "_id": sess.username }
+    myrow=mydb['Nodes']
+    patdoc= myrow.find_one(patquery)
+    
+    return render_template('myacc.html',post=patdoc)
 
+@app.route('/access',methods=['POST'])
+def access():
+    pid=request.form['PID']
+    did=sess.username
+    '''url = "https://www.fast2sms.com/dev/bulk"
 
+    querystring = {"authorization":"4FzGm7K6haHIMiAJfuNsSwv50rT8cROE2UBCkP9yp3bZdXDlQqC0jLU1HVkQYE3sNdph24AIztabBcTO","sender_id":"PATREC","language":"english","route":"qt","numbers":"9789862702","message":"Doctor has requested for your record."}
 
+    headers = {
+    'cache-control': "no-cache"
+    }
 
+    response=requests.request("GET", url, headers=headers, params=querystring)'''
+    myval=mydb['SMART_CONTRACTS']
+    ts=time.time()
+    st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    con={
+    'accessor':did,
+    'owner': pid,
+    'timestamp':st,
+    'record':pid+'REC',
+    'status':0
 
+    }
+    myval.insert_one(con)
+    return render_template('docdash.html')
 
 @app.route('/hospital')
 def hospital():
@@ -291,10 +392,103 @@ def adminlog():
 def admindash():
     return render_template('admindash.html')
 
+@app.route('/admver',methods=['POST'])
+def admverify():
+    nam=request.form['n']
+    ts=time.time()
+    st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    passwd= request.form['pwd']
+    passwd=encrypt_password(passwd)
+    myrow=mydb['Nodes']
+    patdoc= myrow.find()
+    ind=0
+    for x in patdoc:
+        ind=ind+1
+    doc={
+        '_id':'ADM'+str(ind+1),
+        'timestamp':st,
+        'password':passwd,
+        'name':nam
+    }
+    sess.username=doc['_id']
+    myrow.insert_one(doc)
+    return render_template('admindash.html')
+
+@app.route('/admlogover',methods=['POST'])
+def admlogver():
+    userid=request.form['AID']
+    pwd=request.form['pwd']
+    patquery = { "_id": userid }
+    myrow=mydb['Nodes']
+    patdoc= myrow.find(patquery)
+    for x in patdoc:
+        if check_encrypted_password(pwd,x['password']):
+            sess.username = userid
+            return render_template('admindash.html')
+    return render_template('hospitallog.html')
+
+@app.route('/accesslog')
+def accesslog():
+    mycli=mydb['SMART_CONTRACTS']
+    query={"owner":sess.username}
+    mydata=mycli.find(query)
+    block=[]
+    for x in mydata:
+        if x['_id']!="CON00":
+            block.append(x)
+            sess.id=x['accessor']
+    return render_template('accesslog.html',posts=block)
+    
+
+@app.route('/available')
+def available():
+    myquery=patquery = { "accessor": sess.username }
+    myview=mydb['SMART_CONTRACTS']
+    Blockc=[]
+    rec={
+        'doc':'Pending',
+        'gluc':0,
+        'glucf':0,
+        'serum':0,
+        'blood':0,
+        'chol': 0,
+        'thdl':0,
+        'ldl':0,
+        'rbc':0,
+        'pulse':'',
+        'timestamp':'',
+        'prev': '0',
+        'hash':'Pending'
+    }
+    mydat=myview.find(myquery)
+    for x in mydat:
+        if x['status']==1:
+            mydata=mydb[x['owner']]
+            mycl=mydata.find()
+            for y in mycl:
+                Blockc.append(y)
+        elif x['status']==0:
+            Blockc.append(rec)
+
+    return render_template('available.html',posts=Blockc)
+#bAPP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
+'''@app.route("/upload", methods=['POST'])
+def upload():
+    target = os.path.join(APP_ROOT, 'images/')
 
+    if not os.path.isdir(target):
+        os.mkdir(target)
 
+    for file in request.files.getlist("file"):
+        print(file)
+        filename = file.filename
+        destination = "/".join([target, filename])
+        print(destination)
+        file.save(destination)
+
+    return render_template("complete.html")'''
 
 
 @app.route('/organ_donor')
@@ -306,11 +500,27 @@ def donor():
 def insure():
     return render_template('insure.html')
 
+@app.route('/authorize')
+def authorize():
+    myview=mydb['SMART_CONTRACTS']
+    myquery = { 'accessor': sess.id ,
+                'owner':sess.username }
+    newvalues = { "$set": { "status": 1 } }
+    mycol.update_one(myquery, newvalues)
+    return redirect(url_for('accesslog'))
 
+@app.route('/deny')
+def decline():
+    myview=mydb['SMART_CONTRACTS']
+    myquery = { 'accessor': sess.id ,
+                'owner':sess.username }
+    newvalues = { "$set": { "status": 0 } }
+    mycol.update_one(myquery, newvalues)
+    return redirect(url_for('accesslog'))
 
 @app.route('/logout')
 def logout():
-    sess=''
+    sess.username=''
     return render_template('domain.html')
 
 if __name__=='__main__':

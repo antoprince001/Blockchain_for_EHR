@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Welcome Citizen!</title>
+  <title>Welcome DOC!</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -50,7 +50,7 @@
 
     <div>
 
-      <a class="navbar-brand" href="/domain">LOGOUT </button></a>
+      <a class="navbar-brand" href="/logout">LOGOUT </button></a>
     </div>
   </nav>
 
@@ -59,10 +59,19 @@
   <br>
 
   <center> <b>
-      <h1> HEAD BLOCKCHAIN RECORDS</h1>
-    </b></center><br><br>
-        {% for post in posts%}
-        <center><h1>BLOCK {{post._id}}</h1>
+      <h1>ACCOUNT INFORMATION</h1> <br><br>
+      <div class="card" style="width: 20rem; height: 25rem;box-shadow: 40em;;">
+        <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
+        <div style="font-size: 200px;"><i class="fa fa-user fa-x-large" aria-hidden="true" ></i></div>
+        <div class="card-body">
+          
+          <center> <h1>Dr. {{post.name}}</h1></b>
+          </center>
+        </div>
+      </div>
+      <br>
+    <br></center><br><br>
+       
           <table>
             <tr>
               <th>INDEX</th>
@@ -70,35 +79,20 @@
             </tr>
             <tr>
               <td>FIRST NAME</td>
-              <td>{{ post.first }}</td>
+              <td>{{ post.name }}</td>
             </tr>
             <tr>
-              <td>LNAME</td>
-              <td>{{ post.second }}</td>
+              <td>IDENTITY ID</td>
+              <td>{{ post._id }}</td>
             </tr>
             <tr>
               <td>TIMESTAMP OF CREATION</td>
               <td>{{ post.timestamp }}</td>
             </tr>
-            <tr>
-                <td>PREVIOUS HASH</td>
-                <td>{{ post.prevhash }}</td>
-              </tr>
-            
-            <tr>
-              <td>Hash</td>
-              <td>{{ post.hash }}</td>
-              
-            </tr>
-
-            <tr>
-                
-                
-              </tr>
-            
+           
+          
           </table>
           <br><br><br><br>
-          {% endfor %}
         </center>
 
 
@@ -108,3 +102,5 @@
 
 
 </html>
+
+ 

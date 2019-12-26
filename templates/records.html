@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Welcome Citizen!</title>
+  <title>Welcome DOC!</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -59,7 +59,7 @@
   <br>
 
   <center> <b>
-      <h1> HEAD BLOCKCHAIN RECORDS</h1>
+      <h1> MEDICAL RECORDS</h1>
     </b></center><br><br>
         {% for post in posts%}
         <center><h1>BLOCK {{post._id}}</h1>
@@ -68,21 +68,51 @@
               <th>INDEX</th>
               <th>VALUE</th>
             </tr>
+            
             <tr>
-              <td>FIRST NAME</td>
-              <td>{{ post.first }}</td>
+              <td>DOCTOR NAME</td>
+              <td>{{ post.doc }}</td>
             </tr>
             <tr>
-              <td>LNAME</td>
-              <td>{{ post.second }}</td>
+
+                <td>HAEMOGLOBIN</td>
+                <td>{{ post.blood }}</td>
+              </tr>
+              <tr>
+              <td>GLUCOSE (FASTING)</td>
+              <td>{{ post.glucf}}</td>
             </tr>
+            <tr>
+                <td>GLUCOSE (random PP)</td>
+                <td>{{ post.gluc}}</td>
+              </tr>
+              <tr>
+                <td>SERUM APPEARANCE</td>
+                <td>{{ post.serum }}</td>
+              </tr>
+              <tr>
+                <td>TOTAL CHOLESTROL</td>
+                <td>{{ post.chol }}</td>
+              </tr>
+              <tr>
+                <td>HDL CHOLESTROL</td>
+                <td>{{ post.thdl }}</td>
+              </tr>
+              <tr>
+                <td>LDL CHOLESTROL</td>
+                <td>{{ post.ldl }}</td>
+              </tr>
+              <tr>
+                <td>RBC</td>
+                <td>{{ post.rbc}}</td>
+              </tr>
             <tr>
               <td>TIMESTAMP OF CREATION</td>
               <td>{{ post.timestamp }}</td>
             </tr>
             <tr>
                 <td>PREVIOUS HASH</td>
-                <td>{{ post.prevhash }}</td>
+                <td>{{ post.prev}}</td>
               </tr>
             
             <tr>

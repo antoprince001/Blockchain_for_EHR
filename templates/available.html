@@ -59,11 +59,12 @@
   <br>
 
   <center> <b>
-      <h1>MEDICAL BLOCK RECORD</h1>
+      <h1>MEDICAL BLOCK RECORDS</h1>
     </b></center><br><br>
   
-  
 
+    {% for post in posts %}
+    <center><h3>RECORD of {{post._id}} <b>{{post.timestamp}}</b></h3></center>
       <table>
         <tr>
           <th>INDEX</th>
@@ -134,8 +135,11 @@
           <td>{{ post.hash}}</td>
           
         </tr>
+
+       
       </table>
-   
+      <br><br>
+      {% endfor %}
 
     
 

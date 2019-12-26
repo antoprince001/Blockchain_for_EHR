@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Welcome Citizen!</title>
+  <title>Welcome DOC!</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -50,7 +50,7 @@
 
     <div>
 
-      <a class="navbar-brand" href="/domain">LOGOUT </button></a>
+      <a class="navbar-brand" href="/logout">LOGOUT </button></a>
     </div>
   </nav>
 
@@ -59,10 +59,19 @@
   <br>
 
   <center> <b>
-      <h1> HEAD BLOCKCHAIN RECORDS</h1>
-    </b></center><br><br>
-        {% for post in posts%}
-        <center><h1>BLOCK {{post._id}}</h1>
+      <h1>ACCOUNT INFO</h1>
+    </b><br><br>
+    <div class="card" style="width: 20rem; height: 25rem;box-shadow: 40em;;">
+      <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
+      <div style="font-size: 200px;"><i class="fa fa-user fa-x-large" aria-hidden="true" ></i></div>
+      <div class="card-body">
+        
+        <h2>{{post.first}}'s INFO</h2></b>
+        <br><br>
+      </div>
+    </div></center>
+        <center>
+          <br><br><h1>BLOCK {{post._id}}</h1><br>
           <table>
             <tr>
               <th>INDEX</th>
@@ -89,16 +98,9 @@
               <td>Hash</td>
               <td>{{ post.hash }}</td>
               
-            </tr>
-
-            <tr>
-                
-                
-              </tr>
-            
+            </tr>    
           </table>
           <br><br><br><br>
-          {% endfor %}
         </center>
 
 
@@ -108,3 +110,5 @@
 
 
 </html>
+
+ 

@@ -44,12 +44,12 @@
       <h2 class="display-4">SIGN UP TO BECOME A MEMBER OF PATREC-CHAIN</h2>
     </section>
 
-    <form action="/docdash">
+    <form action='/docver' method="POST">
       <div class="container">
         <div class="d-flex justify-content-center align-items-center container ">
           <div class="form-group">
-            <label for="nam"> NAME</label>
-            <input type="text" class="form-control" id="nam">
+            <label for="n"> NAME</label>
+            <input type="text" class="form-control" name="n">
           </div>
 
           <b> SPECIALIZATION </b> <br>
@@ -63,7 +63,10 @@
             <option value="fiat">Dermatologist</option>
             <option value="audi">Gastroenterologist</option>
           </select><br><br>
-
+          <div class="form-group">
+            <label for="pwd">PASSWORD</label>
+            <input type="password" class="form-control" name="pwd">
+          </div>
           <div class="form-group">
             <label for="gen"> GENDER </label>
             <div class="custom-control custom-radio">

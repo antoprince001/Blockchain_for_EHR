@@ -59,49 +59,23 @@
   <br>
 
   <center> <b>
-      <h1>ACCOUNT INFO</h1>
-    </b><br><br>
-    <div class="card" style="width: 20rem; height: 25rem;box-shadow: 40em;;">
-      <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
-      <div style="font-size: 200px;"><i class="fa fa-user fa-x-large" aria-hidden="true" ></i></div>
-      <div class="card-body">
-        
-        <h2>{{post.first}}'s INFO</h2></b>
-        <br><br>
-      </div>
-    </div></center>
-        <center>
-          <br><br><h1>BLOCK {{post._id}}</h1><br>
-          <table>
-            <tr>
-              <th>INDEX</th>
-              <th>VALUE</th>
-            </tr>
-            <tr>
-              <td>FIRST NAME</td>
-              <td>{{ post.first }}</td>
-            </tr>
-            <tr>
-              <td>LNAME</td>
-              <td>{{ post.second }}</td>
-            </tr>
-            <tr>
-              <td>TIMESTAMP OF CREATION</td>
-              <td>{{ post.timestamp }}</td>
-            </tr>
-            <tr>
-                <td>PREVIOUS HASH</td>
-                <td>{{ post.prevhash }}</td>
-              </tr>
-            
-            <tr>
-              <td>Hash</td>
-              <td>{{ post.hash }}</td>
-              
-            </tr>    
-          </table>
-          <br><br><br><br>
-        </center>
+      <h1>ACCESS LOG</h1> <br><br>
+      {% for post in posts %}
+      <div class="card text-center">
+        <div class="card-header">
+          ACCESS REQUEST
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">ACCESS REQUEST INITIATED BY <b>{{post.accessor}}</b></h5><br><br>
+          <h5>CURRENT STATUS : {{post.status}}</h5><br>
+          <a href="/authorize" class="btn btn-primary" >AUTHORIZE</a>
+          <a  href="/deny" class="btn btn-primary">DECLINE</a>
+        </div>
+        <div class="card-footer text-muted">
+          {{post.timestamp}}
+        </div>
+      </div><br><br>
+      {% endfor %}
 
 
     
@@ -110,5 +84,3 @@
 
 
 </html>
-
- 

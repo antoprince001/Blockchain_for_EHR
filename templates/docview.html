@@ -41,76 +41,41 @@
   
   <br>
 
- <center> <b><h1>DOCTOR DASHBOARD</h1></b></center>
-  <br>
-  <div class='container'>
-    <div class='row'>
-      <div class='col' style='box-shadow: 40em;'>
-        
-          <br><br>
-          <center>
-            <div class="card" style="width: 20rem; height: 25rem; box-shadow: 40em;">
-              <div style="font-size: 200px;"><i class="fa fa-user-md" aria-hidden="true"></i> </div>
-              <div class="card-body">
-                
-
-                <center><a href="/myacc" class="btn btn-primary">MY ACCOUNT</a></center>
-              </div>
-            </div>
-
-          </center>
-       
-      </div>
-
-      <div class='col' style='box-shadow: 40em;'>
-        <br><br>
-        <center>
-          <div class="card" style="width: 20rem; height: 25rem; box-shadow: 40em;">
-            <div style="font-size: 200px;"> <i class="fa fa-plus-square" aria-hidden="true"></i></div>
-            <div class="card-body">
-              <center><a href="/medrec" class="btn btn-primary">CREATE RECORD</a></center>
-            </div>
-          </div>
-        </center>
-      </div>
-
-    </div>
-  </diV>
-  <br><br><br><br><br><br>
+ <center> <b><h1>RECORDS ACCESS SECTION</h1></b></center>
   
+  <br><br>
+  <center>
 
   <div class='container'>
-    <div class='row'>
-      
-
-      <div class='col'style='box-shadow: 40em;'>
-        <br><br>
-        <center>
-          <div class="card" style="width: 20rem; height: 25rem; box-shadow: 40em;">
-            <div style="font-size: 200px;"><i class="fa fa-book" aria-hidden="true"></i></div>
-            
-            <div class="card-body">
-              <center><a href="/docview" class="btn btn-primary">VIEW RECORDS</a></center>
-            </div>
-          </div>
-        </center>
-      </div>
       <div class='col'style='box-shadow: 40em;'>
           <br><br>
           <center>
             <div class="card" style="width: 20rem; height: 25rem;box-shadow: 40em;;">
               <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
               <div style="font-size: 200px;"><i class="fa fa-medkit fa-x-large" aria-hidden="true" ></i></div>
-              <div class="card-body">
-                
-                <center><a href="/available" class="btn btn-primary">AVAILABLE RECORD</a></center>
-              </div>
+
             </div>
           </center>
         </div>
 
-    </div>
   </div>
+<br><br>
+  <div class="card text-center">
+    <div class="card-header">
+      <h2>Enter Patient ID</h2>
+    </div>
+    <form action='/access' method="POST">
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <input class="card-text" name='PID'></input>
+      
+    </div>
+    <div class="card-footer text-muted">
+        <button type="submit" class="btn btn-primary">Request</button>
+    </div>
+  </form>
+  </div>
+</center>
   
   
   

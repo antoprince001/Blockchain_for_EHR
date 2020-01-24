@@ -2,8 +2,14 @@
 <html lang="en">
 
 <head>
-  <title>Welcome DOC!</title>
+  <title>Health records</title>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -30,6 +36,16 @@
       background-color: #dddddd;
     }
 
+    button.mbtn {
+  padding:0.6em 2em;
+  border-radius: 8px;
+  color:#fff;
+  background-color:#1976d2;
+  font-size:1.1em;
+  border:0;
+  cursor:pointer;
+  margin:1em;
+}
     p,
     ul {
       font-family: Arial, Helvetica, sans-serif;
@@ -45,96 +61,92 @@
 <body>
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="/" style='font-size: 40px;'>PATREC</a>
-
+    
+      
+  
 
 
     <div>
-
-      <a class="navbar-brand" href="/domain">LOGOUT </button></a>
+      <a class="navbar-brand" href="/back">GO TO DASHBOARD </a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="navbar-brand" href="/logout">LOGOUT </button></a>
     </div>
   </nav>
+<br><br>
 
-
-
-  <br>
 
   <center> <b>
-      <h1> MEDICAL RECORDS</h1>
-    </b></center><br><br>
-        {% for post in posts%}
-        <center><h1>BLOCK {{post._id}}</h1>
-          <table>
-            <tr>
-              <th>INDEX</th>
-              <th>VALUE</th>
-            </tr>
-            
-            <tr>
-              <td>DOCTOR NAME</td>
-              <td>{{ post.doc }}</td>
-            </tr>
-            <tr>
+      <h1>MEDICAL BLOCK RECORDS</h1>
+    </b><br><!--{% if session['user'].find('PAT')!=-1 %}
+    <form action="/healthcard"><button class="mbtn blue" type="submit">VIEW HEALTHCARD</button></form>
+    {% endif %}-->
+  </center>
+  
 
-                <td>HAEMOGLOBIN</td>
-                <td>{{ post.blood }}</td>
-              </tr>
-              <tr>
-              <td>GLUCOSE (FASTING)</td>
-              <td>{{ post.glucf}}</td>
-            </tr>
-            <tr>
-                <td>GLUCOSE (random PP)</td>
-                <td>{{ post.gluc}}</td>
-              </tr>
-              <tr>
-                <td>SERUM APPEARANCE</td>
-                <td>{{ post.serum }}</td>
-              </tr>
-              <tr>
-                <td>TOTAL CHOLESTROL</td>
-                <td>{{ post.chol }}</td>
-              </tr>
-              <tr>
-                <td>HDL CHOLESTROL</td>
-                <td>{{ post.thdl }}</td>
-              </tr>
-              <tr>
-                <td>LDL CHOLESTROL</td>
-                <td>{{ post.ldl }}</td>
-              </tr>
-              <tr>
-                <td>RBC</td>
-                <td>{{ post.rbc}}</td>
-              </tr>
-            <tr>
-              <td>TIMESTAMP OF CREATION</td>
-              <td>{{ post.timestamp }}</td>
-            </tr>
-            <tr>
-                <td>PREVIOUS HASH</td>
-                <td>{{ post.prev}}</td>
-              </tr>
-            
-            <tr>
-              <td>Hash</td>
-              <td>{{ post.hash }}</td>
-              
-            </tr>
-
-            <tr>
-                
-                
-              </tr>
-            
-          </table>
-          <br><br><br><br>
-          {% endfor %}
-        </center>
-
-
+    {% for post in posts %}
     
+    
+         <form action="/display" method="post">
+          {% if post._id !='' and post.type!='none' %}
+<center>
+          <div class="card-center">
+            <h5 class="card-header">RECORD  :  {{post._id}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-success" >View </button>&nbsp;<button formaction="/share" class="btn btn-success" >Share</button></h5> 
+          
+          
+          <div class="card-body">
+              <h5>
+                  Type:       <b>{{ post.type}}</b>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created on: <b>{{post.timestamp}}</b>
+              
+              <input type="hidden" name="_id" value={{ post['_id' ] }}>
+              <input type="hidden" name="owner" value={{ post['owner'] }}>
+    
+              
+            </h5>
+            </div>
+          </center>
+          </div>
+          
+          {% endif %}
+       
+        </form>
+       
+       
+       
+   
+      <br><br>
+      {% endfor %}
+      <br><br>
+      <!--
+<center><b><h3>Awaiting Confirmation </h3></b></center>
+      <br>
+      <table class="ui single line table">
+        <thead>
+          <tr>
+            <th>Record Name</th>
+            <th>Creation Date</th>
+            <th>Creator</th>
+            <th>Type</th>
+            <th>status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for w in wait %}
+          <tr>
+            <td>{{ w._id}}</td>
+            <td>{{ w.timestamp }}</td>
+            <td>{{ w.creator }}</td>
+            <td>{{ w.type }}</td>
+            <td><button class="btn btn-danger">
+              Cancel
+            </button></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    
+-->
 
 </body>
-
 
 </html>

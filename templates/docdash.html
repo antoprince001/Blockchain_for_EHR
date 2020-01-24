@@ -13,6 +13,11 @@
     crossorigin="anonymous"></script>
   <style>
 
+/* Set a background color 
+
+   b{
+     background-color:#1E2832 ;
+   } */
     p,
     ul {
       font-family: Arial, Helvetica, sans-serif;
@@ -33,7 +38,7 @@
       
       <div>
         
-        <a class="navbar-brand" href="/domain">LOGOUT </button></a>
+        <a class="navbar-brand" href="/logout">LOGOUT </button></a>
       </div>
     </nav>
      
@@ -41,7 +46,7 @@
   
   <br>
 
- <center> <b><h1>DOCTOR DASHBOARD</h1></b></center>
+ <center> <b><h1>WELCOME {{ session['user'] }} !</h1></b></center>
   <br>
   <div class='container'>
     <div class='row'>
@@ -68,7 +73,7 @@
           <div class="card" style="width: 20rem; height: 25rem; box-shadow: 40em;">
             <div style="font-size: 200px;"> <i class="fa fa-plus-square" aria-hidden="true"></i></div>
             <div class="card-body">
-              <center><a href="/medrec" class="btn btn-primary">CREATE RECORD</a></center>
+              <center><a href="/medrecord" class="btn btn-primary">CREATE RECORD</a></center>
             </div>
           </div>
         </center>
@@ -90,7 +95,7 @@
             <div style="font-size: 200px;"><i class="fa fa-book" aria-hidden="true"></i></div>
             
             <div class="card-body">
-              <center><a href="/docview" class="btn btn-primary">VIEW RECORDS</a></center>
+              <center><a href="/docview" class="btn btn-primary">REQUEST RECORDS</a></center>
             </div>
           </div>
         </center>

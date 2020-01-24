@@ -38,6 +38,7 @@
       font-style: oblique;
       line-height: 150%;
     }
+    
   </style>
 
 </head>
@@ -45,12 +46,14 @@
 <body>
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="/" style='font-size: 40px;'>PATREC</a>
+    
 
 
 
     <div>
-
-      <a class="navbar-brand" href="/logout">LOGOUT </button></a>
+      <a class="navbar-brand" href="/back">GO TO DASHBOARD </a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="navbar-brand" href="/logout">LOGOUT</a>
     </div>
   </nav>
 
@@ -58,21 +61,37 @@
 
   <br>
 
-  <center> <b>
+  <center> 
       <h1>ACCESS LOG</h1> <br><br>
       {% for post in posts %}
-      <div class="card text-center">
+      <br>
+      <div class="card w-50 " border=1>
         <div class="card-header">
           ACCESS REQUEST
         </div>
         <div class="card-body">
-          <h5 class="card-title">ACCESS REQUEST INITIATED BY <b>{{post.accessor}}</b></h5><br><br>
+          <h5 class="card-title">INITIATED BY <b>{{post.accessor}}</b></h5><br><br>
+          <h5>RECORD ID      : {{post.record}}</h5><br>
           <h5>CURRENT STATUS : {{post.status}}</h5><br>
-          <a href="/authorize" class="btn btn-primary" >AUTHORIZE</a>
-          <a  href="/deny" class="btn btn-primary">DECLINE</a>
+
+          <form action='/authorize' method="post">
+            <input type="hidden"  name="record" value={{ post.record }}> 
+            <input type="hidden"  name="accessor" value={{ post.accessor }}> 
+            <input type="hidden"  name="status" value={{ post.status}}>
+          <input type="submit" class="btn btn-success" value="Accept">
+        
+        </form>
+        <br>
+          <form action='/deny' method="POST" >
+            <input type="hidden"  name="accessor" value={{ post.accessor }}> 
+            <input type="hidden" name="record" value={{ post.record }} >
+            <input type="hidden" name="status" value={{ post.status }} >
+          <input type="submit" class="btn btn-danger" value="Reject">
+          </form>
+        
         </div>
         <div class="card-footer text-muted">
-          {{post.timestamp}}
+          {{ post.timestamp }}
         </div>
       </div><br><br>
       {% endfor %}

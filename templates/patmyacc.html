@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Welcome DOC!</title>
+   <title>Welcome DOC!</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -46,37 +46,49 @@
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="/" style='font-size: 40px;'>PATREC</a>
 
-
-
     <div>
 
+      <a class="navbar-brand" href="/back">GO TO DASHBOARD </button></a>
+     &nbsp;&nbsp;&nbsp;&nbsp;
+
       <a class="navbar-brand" href="/logout">LOGOUT </button></a>
-    </div>
+    <
   </nav>
 
 
 
-  <br>
 
-  <center> <b>
-      <h1>ACCOUNT INFO</h1>
-    </b><br><br>
+<br><br>
+  <center> 
+    
+    <a  class="list-group-item list-group-item-action">
+      <h3>ACCOUNT INFORMATION</h3>
+      </a>
+      <center>
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="/static/img/qr.png" alt="Card image cap" width="50%" height="250px">
+          <div class="card-body">
+            
+            <a href="/qrcode" class="btn btn-primary">SHARE ACCOUNT</a>
+          </div>
+        </div>
+      </center>
+<!--
     <div class="card" style="width: 20rem; height: 25rem;box-shadow: 40em;;">
-      <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
+      <img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>
       <div style="font-size: 200px;"><i class="fa fa-user fa-x-large" aria-hidden="true" ></i></div>
       <div class="card-body">
         
         <h2>{{post.first}}'s INFO</h2></b>
         <br><br>
       </div>
-    </div></center>
+    </div>--></center>
         <center>
-          <br><br><h1>BLOCK {{post._id}}</h1><br>
           <table>
-            <tr>
+            <!-- <tr>
               <th>INDEX</th>
               <th>VALUE</th>
-            </tr>
+            </tr> -->
             <tr>
               <td>FIRST NAME</td>
               <td>{{ post.first }}</td>
@@ -86,28 +98,43 @@
               <td>{{ post.second }}</td>
             </tr>
             <tr>
-              <td>TIMESTAMP OF CREATION</td>
+              <td>ACCOUNT CREATION</td>
               <td>{{ post.timestamp }}</td>
             </tr>
             <tr>
-                <td>PREVIOUS HASH</td>
-                <td>{{ post.prevhash }}</td>
+                <td>CITY</td>
+                <td>{{ post.city }}</td>
               </tr>
             
             <tr>
-              <td>Hash</td>
-              <td>{{ post.hash }}</td>
+              <td>STATE</td>
+              <td>{{ post.state }}</td>
               
             </tr>    
           </table>
           <br><br><br><br>
         </center>
+        
+<br><br>
+<center>
+  <div class="container">
+        <div class="list-group-w-50">
+          <a  class="list-group-item list-group-item-action active">
+          <h3>GUARDIAN  ACCOUNT</h3>
+          </a>
+          <a href="/addguard" class="list-group-item list-group-item-action">ADD GUARDIAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/add.png"></a>
+          <a href="/linkedacc" class="list-group-item list-group-item-action">LINKED ACCOUNTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="/static/img/link.png"></a>
+          
+        </div>
+      </div>
+
+      </center>
 
 
-    
+<br><br>
+
 
 </body>
-
 
 </html>
 

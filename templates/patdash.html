@@ -21,6 +21,23 @@
       font-style: oblique;
       line-height: 150%;
     }
+
+    body{
+      background : url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRu963t5skZ2TaCtpb5Cbqps8dirt_2EdZXhVpW-w3djHImlRYJ");
+      background-size :cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    .card{
+      
+      background : url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRu963t5skZ2TaCtpb5Cbqps8dirt_2EdZXhVpW-w3djHImlRYJ");
+      background-size :cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+     
+
+    }
   </style>
 
 </head>
@@ -33,17 +50,17 @@
       
       <div>
         
-        <a class="navbar-brand" href="/domain">LOGOUT </button></a>
+        <a class="navbar-brand" href="/logout">LOGOUT </button></a>
       </div>
     </nav>
      
 
-  <div id='bgpic'>
+  <!-- <div id='bgpic'>
     <img src="/static/img/diff.jpeg" class="d-block w-100" alt="image" height="500">
-  </div>
+  </div> -->
   <br>
 
- <center> <b><h1>PATIENT DASHBOARD</h1></b></center>
+ <center> <b><h1>DASHBOARD OF {{ session['user'] }}</h1></b></center>
   <br>
   <div class='container'>
     <div class='row'>
@@ -51,8 +68,10 @@
         
           <br><br>
           <center>
-            <div class="card" style="width: 20rem; height: 25rem; box-shadow: 40em;">
-                <img src="/static/img/acc.png " class='card-img-top' height='300'> 
+            <div class="card" style="width: 15rem; height: 20rem; box-shadow: 40em;">
+              
+                <!--<img src="/static/img/acc.png  " height="266" weight="259" class='card-img-top' height='300'> -->
+                <div style="font-size: 200px;"><i class="fa fa-drivers-license-o fa -4x" aria-hidden="true"></i></div>
               <div class="card-body">
                 
 
@@ -67,49 +86,60 @@
       <div class='col' style='box-shadow: 40em;'>
         <br><br>
         <center>
-          <div class="card" style="width: 20rem; height: 25rem; box-shadow: 40em;">
-            <img src="/static/img/Share.png" class="card-img-top" height="300"'>
+          <div class="card" style="width: 15rem; height: 20rem; box-shadow: 40em;">
+            <!--<img src="/static/img/Share.png" class="card-img-top" height="300"'> -->
+            <div style="font-size: 200px;"><i class="fa fa-tasks fa -4x" aria-hidden="true"></i></div>
             <div class="card-body">
               <center><a href="/accesslog" class="btn btn-primary">ACCESS LOG</a></center>
             </div>
           </div>
         </center>
       </div>
+    
 
-    </div>
-  </diV>
-  <br><br><br><br><br><br>
-  
-
-  <div class='container'>
-    <div class='row'>
+       <!-- abi-->
+       <div class='col'style='box-shadow: 40em;'>
+        <br><br>
+        <center>
+          <div class="card" style="width: 15rem; height: 20rem; box-shadow: 40em;">
+            <div style="font-size: 200px;"><i class="fa fa-book fa -4x" aria-hidden="true"></i></div>
+            
+            <div class="card-body">
+              <form action='/viewrec' method='POST'>
+              <center><button class="btn btn-primary" type="submit">VIEW RECORDS</button></center>
+              <input type='hidden' name='owner' value={{ session['user'] }}>
+            </form>
+            </div>
+          </div>
+        </center>
+      </div>
+    
+      
       
 
       <div class='col'style='box-shadow: 40em;'>
         <br><br>
         <center>
-          <div class="card" style="width: 20rem; height: 25rem; box-shadow: 40em;">
-            <div style="font-size: 200px;"><i class="fa fa-book" aria-hidden="true"></i></div>
-            
+          <div class="card" style="width: 15rem; height: 20rem;box-shadow: 40em;;">
+            <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
+            <div style="font-size: 200px;"><i class="fa fa-medkit fa- 4x" aria-hidden="true" ></i></div>
             <div class="card-body">
-              <center><a href="/viewrec" class="btn btn-primary">VIEW RECORDS</a></center>
+              
+              <center><a href="/bookapp" class="btn btn-primary">BOOK APPOINTMENTS</a></center>
             </div>
           </div>
         </center>
       </div>
-      <div class='col'style='box-shadow: 40em;'>
-          <br><br>
-          <center>
-            <div class="card" style="width: 20rem; height: 25rem;box-shadow: 40em;;">
-              <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
-              <div style="font-size: 200px;"><i class="fa fa-medkit fa-x-large" aria-hidden="true" ></i></div>
-              <div class="card-body">
-                
-                <center><a href="#" class="btn btn-primary">VERIFY RECORD</a></center>
-              </div>
-            </div>
-          </center>
-        </div>
+
+
+
+
+
+
+    </div>
+  </diV>
+  <br><br><br><br><br><br>
+
 
     </div>
   </div>

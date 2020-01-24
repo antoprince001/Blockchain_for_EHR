@@ -57,7 +57,8 @@ def check_encrypted_password(password, hashed):
     return pwd_context.verify(password, hashed)
 
 #Mongodb setup
-client = pymongo.MongoClient("mongodb+srv://Antony:A8939469555@blockchainehr-kpbxk.mongodb.net/test?retryWrites=true&w=majority")
+#"mongodb+srv://Antony:password@blockchainehr-kpbxk.mongodb.net/test?retryWrites=true&w=majority"
+client = pymongo.MongoClient()
 
 mydb=client["Blockchain"]
 
@@ -1762,8 +1763,8 @@ def logout():
 
 
 
-
-clienth = pymongo.MongoClient("mongodb+srv://hemapriya:hema1512@medicare-w9kad.gcp.mongodb.net/test?retryWrites=true&w=majority")
+#"mongodb+srv://<username>:password@medicare-w9kad.gcp.mongodb.net/test?retryWrites=true&w=majority"
+clienth = pymongo.MongoClient()
 
 mydbh=clienth["blogdetails"]
 

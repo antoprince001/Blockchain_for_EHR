@@ -11,7 +11,7 @@ import pymongo,dns
 }'''
 
 
-client = pymongo.MongoClient("mongodb+srv://Antony:A8939469555@blockchainehr-kpbxk.mongodb.net/test?retryWrites=true&w=majority")
+client = pymongo.MongoClient()
 db = client.test
 mydb=client["Blockchain"]
 

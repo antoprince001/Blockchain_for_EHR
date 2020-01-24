@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Welcome DOC!</title>
+  <title>Welcome Citizen!</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -44,13 +44,14 @@
 
  <center> <b><h1>RECORDS ACCESS SECTION</h1></b></center>
   
+  <br><br>
   <center>
 
   <div class='container'>
       <div class='col'style='box-shadow: 40em;'>
           <br><br>
           <center>
-            <div class="card" style="width: 20rem; height: 20rem;box-shadow: 40em;;">
+            <div class="card" style="width: 20rem; height: 25rem;box-shadow: 40em;;">
               <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
               <div style="font-size: 200px;"><i class="fa fa-medkit fa-x-large" aria-hidden="true" ></i></div>
 
@@ -62,16 +63,18 @@
 <br><br>
   <div class="card text-center">
     <div class="card-header">
-      <h2>Enter Patient ID</h2>
+      <h2>Enter ID to share record: </h2>
     </div>
-    <form action='/access' method="POST">
+    <form action='/sharerec' method="POST">
     <div class="card-body">
       <h5 class="card-title"></h5>
-      <input class="card-text" name='PID'></input>
+      <input class="card-text" name='accessor'>
+      <input type="hidden" name="owner" value={{ post['owner'] }}>
+      <input type="hidden" name="_id" value={{ post['_id' ] }}>
       
     </div>
     <div class="card-footer text-muted">
-        <button type="submit" class="btn btn-primary">Request</button>
+        <button type="submit" class="btn btn-primary">Share</button>
     </div>
   </form>
   </div>

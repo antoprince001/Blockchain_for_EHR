@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="design.css">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Solway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, textarea, label { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      line-height: 45px;
+      font-size: 45px;
+      color: #fff;
+      z-index: 2;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #eee;
+      }
+      .banner {
+      position: relative;
+      height: 250px;
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTYtvstz7c_RYk0Ebh0JCRYkH4zByEoBEjOW6a-aYhFyNWAp_Xm");  
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.4); 
+      position: absolute;
+   width: 100%;
+      height: 100%;
+      }
+      input,  textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .item:hover, .question label:hover, input:hover::placeholder {
+      color:  #000;
+      }
+      .item input:hover,  .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 3px 0  #aa1409;
+      color:  #a3a1a1;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      input[type=radio]  {
+      display: none;
+      }
+      label.radio {
+      position: relative;
+      display: inline-block;
+      margin: 5px 20px 15px 0;
+      cursor: pointer;
+      }
+      .red {
+      color: red;
+      }
+      .question span {
+      margin-left: 30px;
+      }
+      label.radio:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      }
+      input[type=radio]:checked + label:before, label.radio:hover:before {
+      border: 2px solid #aa1409;
+    }
+      label.radio:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 5px;
+      width: 8px;
+      height: 4px;
+      border: 3px solid #aa1409;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+      }
+      input[type=radio]:checked + label:after {
+      opacity: 1;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px; 
+      background: #aa1409;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      span.required {
+      color: red;
+      }
+      button:hover {
+      background: #790e06;
+      }
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .name-item input, .name-item div {
+      width: calc(50% - 20px);
+      }}
+    </style>
+  </head>
+  <body>
+    <div class="testbox">
+      <form action="/cardiacadd" method="POST" enctype = "multipart/form-data">
+        <div class="banner">
+          <h1>CARDIAC DIAGNOSIS FORM</h1>
+        </div>
+        <div class="item">
+          <p>Patient ID<span class="required">*</span></p>
+          <input type="text" name="pid" required/>
+        </div>
+        
+        <p><h4><strong><u>BLOOD FATS</u></strong></h4></p>
+        
+
+        <div class="item">
+          <label for="environment">CHOLESTROL <span class="required">*</span></label>
+          <input id="name" type="text" name="cho" placeholder="enter unit" required />
+        </div>
+        <div class="item">
+          <label for="environment">TRIGYCERIDES<span class="required">*</span></label>
+          <input id="name" type="text" name="tri" placeholder="enter unit" required />
+        </div>
+
+        <p><h4><strong>ELECTROCARDIOGRAM (ECG)<span class="required">*</span></strong></h4></p>
+        <section id="gallery">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="card">
+                    <img class="card-img-top"
+                      src="https://cdn3.iconfinder.com/data/icons/science-technology-5/64/213-512.png"
+                      eidth="220" height="220">
+                    <div class="card-body">
+                      <h4 class="card-title"><b>CLICK HERE TO UPLOAD RECENT ECG</b></h4>
+                      <input type="file" name="ECG">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <br>
+          <br>
+          <p><h4><strong>EXERCISE STRESS TEST (optional)</strong></h4></p>
+                <section id="gallery">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="card">
+                    <img class="card-img-top"
+                      src="https://cdn3.iconfinder.com/data/icons/science-technology-5/64/213-512.png"
+                      alt="Girl in a jacket" width="200" height="200">
+                    <div class="card-body">
+                      <h4 class="card-title"><b>CLICK HERE TO UPLOAD RECENT ECG</b></h4>
+                      <input type="file" name="EST">                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <br>
+          <br>
+          <br>
+
+          <p><h4><strong>ECHOCARDIOGRAM <span class="required">*</span></strong></h4></p>
+                <section id="gallery">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="card">
+                    <img class="card-img-top"
+                      src="https://cdn0.iconfinder.com/data/icons/medical-and-health-3-8/48/148-512.png"
+                      alt="Girl in a jacket" width="200" height="200">
+                    <div class="card-body">
+                      <h4 class="card-title"><b>CLICK HERE TO UPLOAD SCAN</b></h4>
+                      <input type="file" name="ECHOCARDIO">                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <br>
+          <br>
+          <p><h4><strong>CARDIAC ARREST TEST (optional)</strong></h4></p>
+                <section id="gallery">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="card">
+                    <img class="card-img-top"
+                      src="https://cdn1.iconfinder.com/data/icons/set-task1-set10-medical-line/128/Set_10-Medical-Line-08-128.png"
+                      alt="Girl in a jacket" width="200" height="200">
+                    <div class="card-body">
+                      <h4 class="card-title"><b>CLICK HERE TO UPLOAD RECENT REPORT</b></h4>
+                      <input type="file" name="CAT">                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <br>
+          <br>
+          <br>
+          <p><h4><strong>ANGIOGRAM (only for post cardiac arrest patients)</strong></h4></p>
+                <section id="gallery">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="card">
+                    <img class="card-img-top"
+                      src="https://cdn1.iconfinder.com/data/icons/medical-services-11/60/xray__report__medical__healthcare__bone-512.png"
+                      alt="Girl in a jacket" width="200" height="200">
+                    <div class="card-body">
+                      <h4 class="card-title"><b>CLICK HERE TO UPLOAD XRAY</b></h4>
+                      <input type="file" name="ANG">                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <br>
+          <br>
+          <br>
+
+
+
+        <br>
+        <br>
+        <br>
+        <div class="btn-block">
+          <button type="submit" href="/">SUBMIT</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

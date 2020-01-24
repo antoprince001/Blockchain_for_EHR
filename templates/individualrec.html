@@ -38,7 +38,6 @@
       font-style: oblique;
       line-height: 150%;
     }
-    
   </style>
 
 </head>
@@ -46,14 +45,13 @@
 <body>
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="/" style='font-size: 40px;'>PATREC</a>
-    
 
 
 
     <div>
       <a class="navbar-brand" href="/back">GO TO DASHBOARD </a>
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <a class="navbar-brand" href="/logout">LOGOUT</a>
+      <a class="navbar-brand" href="/logout">LOGOUT </button></a>
     </div>
   </nav>
 
@@ -61,45 +59,40 @@
 
   <br>
 
-  <center> 
-      <h1>ACCESS LOG</h1> <br><br>
-      {% for post in posts %}
-      <br>
-      <div class="card w-50 " border=1>
-        <div class="card-header">
-          ACCESS REQUEST
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">INITIATED BY <b>{{post.accessor}}</b></h5><br><br>
-          <h5>RECORD ID      : {{post.record}}</h5><br>
-          <h5>CURRENT STATUS : {{post.status}}</h5><br>
+  <center> <b>
+      <h1>MEDICAL BLOCK RECORDS</h1>
+    </b></center><br><br>
+  
 
-          <form action='/authorize' method="post">
-            <input type="hidden"  name="record" value={{ post.record }}> 
-            <input type="hidden"  name="accessor" value={{ post.accessor }}> 
-            <input type="hidden"  name="status" value={{ post.status}}>
-          <input type="submit" class="btn btn-success" value="Accept">
-        
-        </form>
-        <br>
-          <form action='/deny' method="POST" >
-            <input type="hidden"  name="accessor" value={{ post.accessor }}> 
-            <input type="hidden" name="record" value={{ post.record }} >
-            <input type="hidden" name="status" value={{ post.status }} >
-          <input type="submit" class="btn btn-danger" value="Reject">
-          </form>
-        
-        </div>
-        <div class="card-footer text-muted">
-          {{ post.timestamp }}
-        </div>
-      </div><br><br>
-      {% endfor %}
 
+    <center><h3>RECORD ID: {{post._id}} <br> <br> CREATED ON:  <b>{{post.timestamp}}</b></h3></center>
+      <table>
+        <tr>
+
+          {% for i in post %}
+          <tr>
+            
+            {% if i.find('SCAN')!=-1 %}
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ i }}</td>
+                     <td><a class='btn-btn-warning' href={{ 'http://localhost:8080/ipfs/'+ post[i] }} target='_blank'>CLICK TO VIEW</a></td>
+           {% endif %}
+           {% if(i!='prev' and i!='hash'  and post[i]!='' and i.find('SCAN')==-1) %}
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ i }}</td>
+            <td>{{post[i]}}</td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        
+        
+        
+       
+      </table>
+      <br><br>
+     
 
     
 
-</body>
 
+</body>
 
 </html>

@@ -12,6 +12,11 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="/static/js/qrcode.js">
+    </script>
+        <script type="text/javascript" src="/static/js/html5-qrcode.js">
+    </script>
   <style>
     table {
       font-family: arial, sans-serif;
@@ -49,7 +54,8 @@
 
 
     <div>
-
+      <a class="navbar-brand" href="/back">GO TO DASHBOARD </a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
       <a class="navbar-brand" href="/logout">LOGOUT </button></a>
     </div>
   </nav>
@@ -64,39 +70,46 @@
         <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
         <div style="font-size: 200px;"><i class="fa fa-user fa-x-large" aria-hidden="true" ></i></div>
         <div class="card-body">
-          
-          <center> <h1>Dr. {{post.name}}</h1></b>
+          {% if session['user'].find('DOC')!=-1 %}
+          <center> <h2>Dr. {{post.docname}}</h2></b>
           </center>
+          {% endif %}
         </div>
       </div>
       <br>
     <br></center><br><br>
        
           <table>
+            
+            {% for i in post %}
             <tr>
-              <th>INDEX</th>
-              <th>VALUE</th>
+              <td>{{ i }}</td>
+              <td>{{ post[i] }}</td>
             </tr>
-            <tr>
-              <td>FIRST NAME</td>
-              <td>{{ post.name }}</td>
-            </tr>
-            <tr>
-              <td>IDENTITY ID</td>
-              <td>{{ post._id }}</td>
-            </tr>
-            <tr>
-              <td>TIMESTAMP OF CREATION</td>
-              <td>{{ post.timestamp }}</td>
-            </tr>
-           
+            {% endfor %}
+            
           
           </table>
+
+
+         
           <br><br><br><br>
         </center>
-
-
-    
+        <center>
+          <div class="container">
+                <div class="list-group-w-50">
+                  <a  class="list-group-item list-group-item-action active">
+                  <h3>GUARDIAN  ACCOUNT</h3>
+                  </a>
+                  
+                  <a href="/linkedacc" class="list-group-item list-group-item-action">LINKED ACCOUNTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="/static/img/link.png"></a>
+                  
+                </div>
+              </div>
+        
+              </center>
+        
+      
 
 </body>
 

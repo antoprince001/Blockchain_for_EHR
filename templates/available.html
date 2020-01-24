@@ -4,6 +4,12 @@
 <head>
   <title>Welcome DOC!</title>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -49,8 +55,10 @@
 
 
     <div>
-
-      <a class="navbar-brand" href="/domain">LOGOUT </button></a>
+      <a class="navbar-brand" href="/back">GO TO DASHBOARD </button></a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+ 
+      <a class="navbar-brand" href="/logout">LOGOUT </button></a>
     </div>
   </nav>
 
@@ -64,83 +72,69 @@
   
 
     {% for post in posts %}
-    <center><h3>RECORD of {{post._id}} <b>{{post.timestamp}}</b></h3></center>
-      <table>
-        <tr>
-          <th>INDEX</th>
-          <th>VALUE</th>
-        </tr>
-        <tr>
-          <tr>
-            <td>PATIENT RECORD ID</td>
-            <td>{{post._id}}</td>
-          </tr>
-        </tr>
-        <tr>
-          <td>DOCTOR</td>
-          <td>{{ post.doc }}</td>
-        </tr>
-        <tr>
-          <td>GLUCOSE(Random PP) </td>
-          <td>{{ post.gluc }}</td>
+    
+    
+         <form action="/display" method="post">
+          {% if post._id !='' %}
+<center>
+          <div class="card-center">
+            <h5 class="card-header">RECORD  :  {{post._id}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-success" >View </button></h5> 
           
-        </tr>
-        <tr>
-          <td>GLUCOSE(Fasting) </td>
-          <td>{{ post.glucf }}</td>
           
-        </tr>
-        <tr>
-          <td>SERUM APPEARANCE</td>
-          <td>{{ post.serum }}</td>
+          <div class="card-body">
+              <h5>
+                  Type:       <b>{{ post.type}}</b>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created on: <b>{{post.timestamp}}</b>
+              
+              <input type="hidden" name="_id" value={{ post['_id' ] }}>
+              <input type="hidden" name="owner" value={{ post['owner'] }}>
+              
+            </h5>
+            </div>
+          </center>
+          </div>
           
-        </tr>
-        <tr>
-          <td>HAEMOGLOBIN </td>
-          <td>{{ post.blood }}</td>
-          
-        </tr>
-        <tr>
-          <td>TOTAL CHOLESTROL </td>
-          <td>{{ post.chol }}</td>
-          
-        </tr>
-        <tr>
-          <td>HDL CHOLESTROL </td>
-          <td>{{ post.thdl }}</td>
-          
-        </tr>
-        <tr>
-          <td>LDL CHOLESTROL</td>
-          <td>{{ post.ldl }}</td>
-          
-        </tr>
-        <tr>
-          <td>RBC</td>
-          <td>{{ post.rbc }}</td>
-          
-        </tr>
-        <tr>
-          <td>PULSE</td>
-          <td>{{ post.pulse }}</td>
-          
-        </tr>
-        <tr>
-          <td>PREVIOUS Hash</td>
-          <td>{{ post.prev }}</td>
-          
-        </tr>
-        <tr>
-          <td>HASH</td>
-          <td>{{ post.hash}}</td>
-          
-        </tr>
-
+          {% endif %}
        
-      </table>
+        </form>
+       
+       
+       
+   
       <br><br>
       {% endfor %}
-
+      <br><br>
+<center><b><h3>Awaiting Confirmation </h3></b></center>
+      <br>
+      <table class="ui single line table">
+        <thead>
+          <tr>
+            <th>Record Name</th>
+            <th>Creation Date</th>
+            <th>Creator</th>
+            <th>Type</th>
+            <th>status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for w in wait %}
+          <tr>
+            <form action="/cancel" method="POST">
+            <td>{{ w._id}}</td>
+            <td>{{ w.timestamp }}</td>
+            <td>{{ w.creator }}</td>
+            <td>{{ w.type }}</td>
+            <input type="hidden" name="_id" value={{ w._id }}>
+            <input type="hidden" name="owner" value={{ w.owner}}>
+            <input type="hidden" name="accessor" value={{ session['user'] }}>
+            <td><button class="btn btn-danger" type="submit">
+              Cancel
+            </button></td>
+          </form>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     
 
 

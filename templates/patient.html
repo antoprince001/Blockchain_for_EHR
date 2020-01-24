@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
     integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <script src="//geodata.solutions/includes/countrystatecity.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
     </script>
@@ -56,15 +58,15 @@
       <div class="d-flex justify-content-center align-items-center container ">
         <div class="form-group">
           <label for="usr">FIRST NAME</label>
-          <input type="text" class="form-control" name="usr">
+          <input type="text" class="form-control" name="usr" required="required">
         </div>
         <div class="form-group">
           <label for="lsn">LAST NAME</label>
-          <input type="text" class="form-control" name="lsn">
+          <input type="text" class="form-control" name="lsn" >
         </div>
         <div class="form-group">
           <label for="pwd">PASSWORD</label>
-          <input type="password" class="form-control" name="pwd">
+          <input type="password" class="form-control" name="pwd" required="required">
         </div>
         <div class="form-group">
           <label for="gen"> GENDER </label>
@@ -90,9 +92,37 @@
         </div>
 
         <div class="form-group">
-          <label for="add">ADDRESS</label>
-          <input type="text" class="form-control" name="add">
+          <label for="addres">ADDRESS</label>
+          <input type="text" class="form-control" name="addres">
         </div>
+
+        
+        <div class="form-group">
+          <label for="country">COUNTRY </label><br>
+          <select name="country" class="countries order-alpha presel-IN"  id="countryId">
+            <option value="">Select Country</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="state">STATE </label>
+          <br>
+          <select name="state" class="states order-alpha"" id="stateId" required="required">
+            <option value="">Select State</option>
+        </select>
+        </div>
+
+        <div class="form-group">
+          <label for="city">CITY </label><br>
+          <select name="city" class="cities order-alpha" id="cityId" required="required">
+            <option value="">Select City</option>
+        </select>
+        </div>
+      
+      
+     
+   
+  
 
         <div class="form-group">
           <label for="phone">PHONE </label>
@@ -100,8 +130,8 @@
         </div>
 
         <div class="form-group">
-          <label for="Aadhar">ENTER YOUR 12 DIGIT AADHAAR PIN</label>
-          <input type="text" class="form-control" name="ad">
+          <label for="Aadhar">ENTER YOUR 12 DIGIT AADHAR PIN</label>
+          <input type="text" class="form-control" name="Aadhar">
         </div>
 
         <div class="form-group">

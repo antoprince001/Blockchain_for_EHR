@@ -29,7 +29,7 @@
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="/" style='font-size: 40px;'>PATREC</a>
         
-    
+        
       
       <div>
         <a class="navbar-brand" href="/back">GO TO DASHBOARD </a>
@@ -42,44 +42,31 @@
   
   <br>
 
- <center> <b><h1>RECORDS ACCESS SECTION</h1></b></center>
-  
+ <center> <b><h1>RECORDS OF {{post.owner}}</h1></b></center>
+  <br>
+  {% for i in posts %}
+  {% if i.time %}
   <center>
-
-  <div class='container'>
-      <div class='col'style='box-shadow: 40em;'>
-          <br><br>
-          <center>
-            <div class="card" style="width: 20rem; height: 20rem;box-shadow: 40em;;">
-              <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
-              <div style="font-size: 200px;"><i class="fa fa-medkit fa-x-large" aria-hidden="true" ></i></div>
-
-            </div>
-          </center>
-        </div>
-
-  </div>
-<br><br>
-  <div class="card text-center">
+  <div class="card w-50 " border=1>
     <div class="card-header">
-      <h2>Enter Patient ID</h2>
+      <b>{{ i.own }}</b>
     </div>
-    <form action='/access' method="POST">
     <div class="card-body">
-      <h5 class="card-title"></h5>
-      <input class="card-text" name='PID'></input>
-      
+      <h5 class="card-title">Created on : {{ i.time }}</h5>
+      <br>
+      <form action='/createcon' method="post">
+        <input type="hidden"  name="owner" value={{ post.owner }}> 
+        <input type="hidden"  name="record" value={{ i.own}}> 
+        <input type="hidden"  name="time"   value={{ i.time }}>
+        <input type="hidden"  name="accessor" value={{ post.accessor}}> 
+      <input type="submit" class="btn btn-primary" value="Request">
+    
+    </form>
     </div>
-    <div class="card-footer text-muted">
-        <button type="submit" class="btn btn-primary">Request</button>
-    </div>
-  </form>
   </div>
 </center>
-  
-  
-  
-</body>
+  {% endif %}
+  {% endfor %}
 </body>
 
 </html>

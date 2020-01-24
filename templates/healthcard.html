@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Welcome DOC!</title>
+  <title>HEALTH CARD</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -38,7 +38,12 @@
       font-style: oblique;
       line-height: 150%;
     }
-    
+    body{
+			background-image: url('/static/img/healthcard.jpg');
+			background-size: 100%;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+            }
   </style>
 
 </head>
@@ -46,60 +51,22 @@
 <body>
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="/" style='font-size: 40px;'>PATREC</a>
-    
 
 
 
     <div>
       <a class="navbar-brand" href="/back">GO TO DASHBOARD </a>
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <a class="navbar-brand" href="/logout">LOGOUT</a>
+      <a class="navbar-brand" href="/logout">LOGOUT </button></a>
     </div>
   </nav>
 
 
 
-  <br>
-
-  <center> 
-      <h1>ACCESS LOG</h1> <br><br>
-      {% for post in posts %}
-      <br>
-      <div class="card w-50 " border=1>
-        <div class="card-header">
-          ACCESS REQUEST
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">INITIATED BY <b>{{post.accessor}}</b></h5><br><br>
-          <h5>RECORD ID      : {{post.record}}</h5><br>
-          <h5>CURRENT STATUS : {{post.status}}</h5><br>
-
-          <form action='/authorize' method="post">
-            <input type="hidden"  name="record" value={{ post.record }}> 
-            <input type="hidden"  name="accessor" value={{ post.accessor }}> 
-            <input type="hidden"  name="status" value={{ post.status}}>
-          <input type="submit" class="btn btn-success" value="Accept">
-        
-        </form>
-        <br>
-          <form action='/deny' method="POST" >
-            <input type="hidden"  name="accessor" value={{ post.accessor }}> 
-            <input type="hidden" name="record" value={{ post.record }} >
-            <input type="hidden" name="status" value={{ post.status }} >
-          <input type="submit" class="btn btn-danger" value="Reject">
-          </form>
-        
-        </div>
-        <div class="card-footer text-muted">
-          {{ post.timestamp }}
-        </div>
-      </div><br><br>
-      {% endfor %}
-
 
     
 
-</body>
 
+</body>
 
 </html>

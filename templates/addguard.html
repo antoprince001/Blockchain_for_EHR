@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Welcome DOC!</title>
+  <title>Welcome !</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -32,8 +32,9 @@
     
       
       <div>
-        <a class="navbar-brand" href="/back">GO TO DASHBOARD </a>
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="navbar-brand" href="/back">GO TO DASHBOARD </button></a>
+     &nbsp;&nbsp;&nbsp;&nbsp;
+
         <a class="navbar-brand" href="/logout">LOGOUT </button></a>
       </div>
     </nav>
@@ -42,16 +43,17 @@
   
   <br>
 
- <center> <b><h1>RECORDS ACCESS SECTION</h1></b></center>
+ <center> <b><h1>Add Guardian Account</h1></b></center>
   
+  <br><br>
   <center>
-
+<!--
   <div class='container'>
       <div class='col'style='box-shadow: 40em;'>
           <br><br>
           <center>
-            <div class="card" style="width: 20rem; height: 20rem;box-shadow: 40em;;">
-              <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
+            <div class="card" style="width: 20rem; height: 25rem;box-shadow: 40em;;">
+              <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>
               <div style="font-size: 200px;"><i class="fa fa-medkit fa-x-large" aria-hidden="true" ></i></div>
 
             </div>
@@ -59,19 +61,29 @@
         </div>
 
   </div>
+-->
 <br><br>
   <div class="card text-center">
-    <div class="card-header">
-      <h2>Enter Patient ID</h2>
-    </div>
-    <form action='/access' method="POST">
+    
+    <form action='/addguardian' method="POST">
     <div class="card-body">
-      <h5 class="card-title"></h5>
-      <input class="card-text" name='PID'></input>
+      <h5 class="card-title">
+      GUARDIAN ID&nbsp;&nbsp;&nbsp;<input class="card-text" name='guardian' required></input>
+  
+      <br><br>
+      
+        GUARDIAN LEVEL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="level">
+            <option value="VIEW">View Only</option>
+            <option value="SHARE AND VIEW">Complete Access</option>
+            
+          </select> 
+      </h5>
+      <input type="hidden" name="owner" value={{ session['user'] }}>
       
     </div>
+
     <div class="card-footer text-muted">
-        <button type="submit" class="btn btn-primary">Request</button>
+        <button type="submit" class="btn btn-warning">&nbsp;&nbsp;Link&nbsp;&nbsp; </button>
     </div>
   </form>
   </div>

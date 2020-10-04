@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title> DELETE </title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+</head>
+
+<body id="hello">
+
+	 <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href='/'>MEDBLOG</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/">HOME</a></li>
+    </ul>
+</nav>
+
+
+
+<div class="container">
+  {% for p in posts %}
+
+
+            <section id="header" class="jumbotron text-center">
+           <h2 class="display-4"> POST ON <b> {{ p.title }} </b> IS DELETED </h2> 
+           <p> CREATED BY YOU ON <b> {{ p.time }} </b> </p>
+            </section>
+
+
+                  <p> <b> <h3>  {{ p.content }}  </h3></b> </p>
+
+
+
+
+
+                     {% endfor %} 
+                  </div>
+
+
+</body>
+
+<style>
+#hello{
+    padding: 25px;
+    background: url("https://image.winudf.com/v2/image/Y29tLmJhYnlwcm82NjY2NjYuTGlnaHRXYWxscGFwZXJIRF9zY3JlZW5fMF9jbHI4bnFnZw/screen-0.jpg?fakeurl=1&type=.jpg");
+    background-repeat: no-repeat;
+    background-size:  1700px;
+    }
+
+
+
+</style>
+</html>

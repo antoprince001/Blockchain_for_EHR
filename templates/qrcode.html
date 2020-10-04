@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+</style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            function generateBarCode()
+            {
+                var nric = $('#text').val();
+                var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=50x50';
+                $('#barcode').attr('src', url);
+            }
+        </script>
+</head>
+<body>
+
+<h2 style="text-align:center">Patient Profile Card</h2>
+<input id="text" type="hidden" value={{ session['user'] }} style="Width:20%" onblur='generateBarCode();' > 
+<div class="card">
+    <img id='barcode' 
+    src="https://api.qrserver.com/v1/create-qr-code/?data={{ session['user'] }}&amp;size=100x100" 
+    alt="" 
+    title="HELLO" 
+    width="60%" 
+    height="50%" />
+  <h1>{{ session['user'] }}</h1>
+
+  <div style="margin: 24px 0;">
+    <a href="#"><i class="fa fa-dribbble"></i></a> 
+    <a href="#"><i class="fa fa-twitter"></i></a>  
+    <a href="#"><i class="fa fa-linkedin"></i></a>  
+    <a href="#"><i class="fa fa-facebook"></i></a> 
+  </div>
+ <p><form><button  href="/back" formaction="/back" type="submit">SHARE</button></form></p> 
+</div>
+
+</body>
+</html>

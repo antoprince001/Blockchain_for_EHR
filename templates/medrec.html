@@ -1,0 +1,226 @@
+<html>
+
+<head>
+  <title>details</title>
+  <script type="text/javascript">
+  </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="design.css">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Solway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    #header {
+      background: url("https://img.freepik.com/free-vector/abstract-medical-wallpaper-template-design_53876-61803.jpg?size=626&ext=jpg");
+    }
+  </style>
+
+  <style>
+    #hello {
+      font-family: 'Noto Sans', sans-serif;
+    }
+
+    label {
+      font-family: 'Solway', serif;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <body class="bg">
+    <nav class="navbar bg-dark navbar-dark">
+      <div class="container">
+        <a href="/home" class="navbar-brand"><b>HOME</b></a>
+      </div>
+    </nav>
+
+    <section id="header" class="jumbotron text-center">
+      <h2 class="display-4">FILL YOUR MEDICAL DETAILS</h2>
+    </section>
+
+    <form action='/create' method="POST">
+      <div class="container">
+        <div class="d-flex justify-content-center align-items-center container ">
+
+          <div class="form-group">
+            <label for="namee">
+              <h3>PATIENT ID: </h3>
+            </label>
+            <input type="text" name="pid">
+          </div>
+
+          <div class="form-group">
+            <label for="doc">
+              <h3>Doctor NAME:&nbsp;&nbsp;</h3>
+            </label>
+            <input type="text" name="doc" value= {{ posts.doc }}>
+          </div>
+          <h3> ENTER CLINICAL DETAILS </h3>
+
+          <div class="form-grouping">
+            <h3>HAEMATOLOGY</h3><br>
+            <div class="form-group">
+              <label for="blood">HAEMOGLOBIN </label>
+              <input type="text" name="blood">
+            </div>
+
+
+            <div class="form-group">
+              <label for="usr">BLOOD GROUPING </label>
+              <select name="cars">
+                <option value="volvo">A</option>
+                <option value="saab">B</option>
+                <option value="fiat">O</option>
+                <option value="audi">AB</option>
+
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="gen"> BLOOD TYPE </label>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+              <label class="custom-control-label" for="defaultUnchecked">POSITIVE</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios" checked>
+              <label class="custom-control-label" for="defaultChecked">NEGATIVE</label>
+            </div>
+          </div>
+
+
+          <h3> BIOCHEMISTRY</h3>
+
+          <div class="form-group">
+            <label for="usr">GLUCOSE (random PP) </label>
+            <input type="text" name="pp">
+          </div>
+
+
+          <div class="form-group">
+            <label for="usr">GLUCOSE (Fasting) </label>
+            <input type="text" name="fast">
+          </div>
+
+
+          <h3>LIPID PROFILE/SERUM</h3>
+
+          <div class="form-group">
+            <label for="serum">SERUM APPEARANCE</label>
+            <input type="text" name="serum">
+          </div>
+
+          <div class="form-group">
+            <label for="tot">TOTAL CHOLESTROL</label>
+            <input type="text" name="tot">
+          </div>
+          <div class="form-group">
+            <label for="hdl">HDL CHOLESTROL</label>
+            <input type="text" name="thdl">
+          </div>
+
+          <div class="form-group">
+            <label for="ldl">LDL CHOLESTROL</label>
+            <input type="text" name="ldl">
+          </div>
+
+
+          <h3>MICROSCOPIC EXAMINATION</h3>
+
+          <div class="form-group">
+            <label for="rbc">RBC</label>
+            <input type="text" name="rbc">
+          </div>
+
+          <div class="form-group">
+            <label for="pulse">PULSE CELLS</label>
+            <input type="text" name="pulse">
+          </div>
+          <div class="form-group">
+            <label for="casts">CASTS</label>
+            <input type="text" id="thdl">
+          </div>
+
+          <div class="form-group">
+            <label for="crys">CRYSTALS</label>
+            <input type="text" id="crys">
+          </div>
+
+          <div class="form-group">
+            <label for="gen"> UNDERGONE ANY SURGERY BEFORE ? </label>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+              <label class="custom-control-label" for="defaultUnchecked">YES</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios" checked>
+              <label class="custom-control-label" for="defaultChecked">NO</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="txt">IF SO SPECIFY !</label>
+            <textarea class="form-control rounded-0" id="text" rows="5"></textarea>
+          </div>
+
+          <br>
+          <br>
+        
+          <section id="gallery">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="card">
+                    <img class="card-img-top"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxRLLPqiMQVjJDLe_mNPWmSGixhVZOqShfudI7tuKPkSmRvd7W&s"
+                      alt="100px">
+                    <div class="card-body">
+                      
+                      <h4 class="card-title"><b>CLICK HERE TO UPLOAD CLINICAL REPORTS</b></h4>
+                      <a type="submit" class="btn btn-primary btn-lg">PROCEED</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="card">
+                    <img class="card-img-top"
+                      src="https://cdn3.iconfinder.com/data/icons/medical-clinic-icons/1250/prescription_icon_2-512.png"
+                      alt="Girl in a jacket" width="220" height="220">
+                    <div class="card-body">
+                      <h4 class="card-title"><b>CLICK HERE TO UPLOAD RECENT PRESCRIPTION</b></h4>
+                      <a href="pres.html" class="btn btn-primary btn-lg">PROCEED</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="container">
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+        <a type="button" href="/medrec" class="btn btn-info">RESET</a>
+      </div>
+
+    </form>
+  </body>
+
+</html>

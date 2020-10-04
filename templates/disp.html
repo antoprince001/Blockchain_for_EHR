@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Welcome DOC!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous">
+      </script>
+      <script>
+      var container = $('div.pp');
+
+/* Set Function */
+function clickme() {
+  /* Set Progess Bar */
+  var progressBar = $('<div class="progress-bar"/>');
+    
+  /* Append Progress Bar to Container and Queue Animation */
+  container.append(progressBar).queue('example', function() {
+    /* Animate Progress Bar */
+    progressBar.animate({ width: '100%' }, 3000, function() {
+      /* Run Next Queue */
+      container.dequeue('example');
+    });
+  });
+
+  /* Fall Back if Nothing is Animating */
+  if(!progressBar.prevAll(':animated').length) {
+    container.dequeue('example');
+  }
+}</script>
+<script>
+var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+        
+      }
+    }
+  }
+  document.getElementById("vals").innerHTML = "Verification Complete...";
+}  </script>
+
+  <style>
+#myProgress {
+  width: 100%;
+  background-color: grey;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
+}
+    p,
+    ul {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: x-large;
+      letter-spacing: 3px;
+      font-style: oblique;
+      line-height: 150%;
+    }
+   
+  </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/" style='font-size: 40px;'>PATREC</a>
+        
+        
+      
+      <div>
+        
+       <a class="navbar-brand" href="/back"> GO TO DASHBOARD </a> &nbsp;&nbsp;&nbsp;&nbsp;   
+
+        <a class="navbar-brand" href="/logout">LOGOUT </button></a>
+      </div>
+    </nav>
+     
+
+  
+  <br>
+
+ <center> <b><h1 id='vals'></h1></b></center>
+  <br>
+
+  <div id="myProgress">
+    <div id="myBar" class="progress-bar bg-success" ></div>
+  </div>
+  <br>
+  <center>
+    <div class="card" style="width: 50rem;">
+       
+        <div class="card-body">
+          <h5 class="card-title-dark">RECORD:  <b>{{posts._id }}</h5></b>
+          <h5 class="card-title-dark">TYPE:  <b>{{posts.type }}</h5></b>
+          <p class="card-text">
+            <table class="table table">
+                
+                <tbody>
+                    {% for i in posts %}
+                  <tr>
+                     
+                     {% if i.find('SCAN')!=-1 %}
+                     <td>{{ i }}  &nbsp;&nbsp;</td>
+                     <td><a class='button' href={{ 'http://localhost:8080/ipfs/'+ posts[i] }} target='_blank'>VIEW</a></td>
+                    {% endif %}
+                    {% if i!='hash' and i!='prev' and i!='' and i.find('SCAN')==-1 %}
+                    <td>{{ i }}  &nbsp;&nbsp;</td>
+                    <td>{{ posts[i] }}</td>
+                    {% endif %}
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+          </p><form action={{ "/"+ direct }} method="POST">
+            {% for i in posts %}
+            <input type="hidden" name={{ i }} value={{ posts[i] }}>
+            {% endfor %}
+          <button onclick="move()" class="btn btn-primary" type="submit">Add record</button>
+        </form>
+        </div>
+      </div>
+      
+</center>
+
+<br>
+<br>
+
+  <br>
+
+
+  
+</body>
+
+</html>

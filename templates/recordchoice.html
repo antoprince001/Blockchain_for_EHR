@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Welcome DOC!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <style>
+
+    p,
+    ul {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: x-large;
+      letter-spacing: 3px;
+      font-style: oblique;
+      line-height: 150%;
+    }
+  </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/" style='font-size: 40px;'>PATREC</a>
+        
+        
+      
+      <div>
+        
+       <a class="navbar-brand" href="/back"> GO TO DASHBOARD </a> &nbsp;&nbsp;&nbsp;&nbsp;   
+
+        
+        <a class="navbar-brand" href="/logout">LOGOUT </button></a>
+      </div>
+    </nav>
+     
+
+  
+  <br>
+
+ <center> <b><h1>RECORDS OF {{post.owner}}</h1></b></center>
+  <br>
+  {% for i in posts %}
+  {% if i.time %}
+  <center>
+  <div class="card w-50 " border=1>
+    <div class="card-header">
+      <b>{{ i.own }}</b>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Created on : {{ i.time }}</h5>
+      <br>
+      <form action='/createcon' method="post">
+        <input type="hidden"  name="owner" value={{ post.owner }}> 
+        <input type="hidden"  name="record" value={{ i.own}}> 
+        <input type="hidden"  name="time"   value={{ i.time }}>
+        <input type="hidden"  name="accessor" value={{ post.accessor}}> 
+      <input type="submit" class="btn btn-primary" value="Request">
+    
+    </form>
+    </div>
+  </div>
+</center>
+  {% endif %}
+  {% endfor %}
+</body>
+
+</html>

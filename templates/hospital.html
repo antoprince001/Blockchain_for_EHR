@@ -1,0 +1,96 @@
+<html>
+<head>
+  <title>hospital login</title>
+  <script type="text/javascript">
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+</script>
+
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+<style>
+    #header{
+      background: url("https://media1.thehungryjpeg.com/thumbs/800_3639784_35cel3qtlex138d11c167kaekiemz7gczpi3n59k.jpg");
+    }
+  </style>
+
+  <style>
+  .display-4{
+      color: #FFFFFF;
+  }
+</style>
+
+</head>
+
+<body>
+  <body class="bg">
+  <nav class="navbar bg-dark navbar-dark">
+    <div class="container">
+      <a href="/" class="navbar-brand"><b>HOME</b></a>
+    </div>
+  </nav>
+
+  <section id="header" class="jumbotron text-center">
+    <h2 class="display-4">LOGIN TO BECOME A MEMBER OF PATREC-CHAIN</h2>
+  </section>
+
+  <form action='/admver' method="POST">
+  <div class="container">
+   <div class="d-flex justify-content-center align-items-center container ">  
+          <div class="form-group">
+            <label for="n">OFFICIAL NAME</label>
+            <input type="text" class="form-control" name="n">
+          </div>
+          <div class="form-group">
+            <label for="pwd">PASSWORD</label>
+            <input type="password" class="form-control" name="pwd">
+          </div>
+          <div class="form-group">
+            <label for="organisation">ORGANISATION UNDER WHICH YOU WORK</label>
+            <input type="text" class="form-control" id="organisation">
+          </div>
+          <div class="form-group">
+          <label for="gen"> IS YOUR FIRM GOVERNMENT AIDED ? </label>
+           <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="yes" name="defaultExampleRadios">
+                <label class="custom-control-label" for="yes">YES</label>
+            </div>
+
+             <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="no" name="defaultExampleRadios" checked>
+                <label class="custom-control-label" for="no">NO</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="number">ENTER YOUR ORGANISATION'S UNIQUE NUMBER</label>
+            <input type="text" class="form-control" id="number">
+          </div>
+
+        <div class="form-group">
+            <label for="inputUserName" class="control-label">OFFICIAL EMAIL</label>
+            <input type="email" class="form-control" id="inputUserName" aria-labelledby="emailnotification">
+        </div>
+
+          <div class="form-group">
+            <label for="city">CITY</label>
+            <input type="text" class="form-control" id="city">
+          </div>
+
+
+        <div class="form-group">
+            <label for="domain" class="control-label">DOMAIN</label>
+            <input type="text" class="form-control" id="domain" aria-labelledby="emailnotification">
+        </div>
+
+        <div class="container">
+            <button type="submit" class="btn btn-primary">SUBMIT</button>
+            <button type="button" class="btn btn-info">RESET</button>
+        </div>
+</form> 
+</body>
+</html>

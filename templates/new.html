@@ -1,0 +1,92 @@
+<html>
+<head>
+	<title> NEW POST </title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+</head>
+
+<body id="hello">
+
+	 <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href='/'>MEDBLOG</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/">HOME</a></li>
+      <li><a href="/new">EDIT POST</a></li>
+      <li><a href="/update">UPDATE POST</a></li>
+      <li><a href="/delete">DELETE POST</a></li>
+    </ul>
+</nav>
+
+<marquee> <h2> <font color="white"> PATREC'S MEDBLOG  </font></h2></marquee> <br><br>
+
+<div class="container" id="cont">
+
+			<form action="/result" method="POST">
+
+				<h3><b> SHARE YOUR CONTENT </b></h3>
+				<div class="form-group">
+			    <label for="title"> TITLE </label>
+			    <input type="text" class="form-control" id="tit" name="title" placeholder="TITLE OF THE POST">
+			  </div>
+			   <div class="form-group">
+			    <label for="img"> IMAGE (IF ANY) </label>
+			    <input type="text" class="form-control" id="picture" name="pic" placeholder="RELATED PICTURES/LINKS IF ANY">
+			  </div>
+			  <div class="form-group">
+				  <label for="comment">POST CONTENT:</label>
+				  <textarea class="form-control" rows="10" id="comment" name="comment" placeholder="LEAVE YOUR COMMENT HERE"></textarea>
+				</div>
+
+				<button type="submit" class="btn btn-primary"> SUBMIT </button>
+				
+
+
+			</form>
+
+</div>
+
+</body>
+
+
+<style>
+
+#cont {
+  background-color: lightgrey;
+  width: 1000px;
+  height: 530px;
+  align-items: center
+  border: 1px solid black;
+  padding: 30px;
+}
+
+
+</style>
+
+<style>
+    #hello{
+    padding: 25px;
+    background: url("http://getwallpapers.com/wallpaper/full/6/4/c/461893.jpg");
+    background-repeat: no-repeat;
+    background-size:  1700px;
+    }
+
+
+  </style>
+
+
+
+
+</html>

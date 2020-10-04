@@ -1,0 +1,121 @@
+<html>
+<head>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+</head>
+
+<body id="hello">
+
+<section id="header" class="jumbotron text-center">
+    <h2 class="display-4"><font color="white">SEARCH FOR A DOCTOR</font></h2>
+  </section>
+
+  <form action="/search" method="POST">
+  	<div class="container">
+
+		  <div class="form-group">
+		    	<label for="specialized">I WANT TO CONSULT A DOCTOR</label>
+		    	<input type="text" class="form-control" id="sp" name="special" placeholder="SPECIALIZED IN">
+		  </div>
+			  <div class="form-group">
+			    <label for="address"> ADDRESS </label>
+			    <input type="text" class="form-control" id="address" name="add" placeholder="ADDRESS">
+			  </div>
+
+		  <b> INSURANCE TYPE </b> 
+		  <br>
+		  <br>
+		          <select name="insure">
+			            <option value="self">Self-pay</option>
+			            <hr>
+			            <option value="new">New India</option>
+			            <option value="cap">Bajai capital</option> 
+			            <option value="cardio">Cardio-care</option>
+			            <option value="life">Life-insured</option>
+			            <option value="visitime"> Visitme</option>
+		          </select>
+		          
+          			<br>
+          			<br>
+          			<br>
+
+          <button type="submit" class="btn btn-primary" > SUBMIT </button>
+
+
+  	</div>
+
+
+
+
+  </form>
+
+
+  <section id="footer" class="jumbotron text-center">
+    <h2 class="display-4"><font color="blue"> SPECIALIZATION INCLUDES </font></h2>
+    <p>
+
+    	<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ALLERGY AND IMMUNOLOGY</th>
+      <th>ANESTHESIOLOGY</th>
+      <th><b>CARDIOLOGY</b></th>
+      <th>CHILD PSYCHIATRY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>DERMATOLOGY</th>
+      <td><b>RADIOLOGY</b></td>
+      <td><b>EMERGENCY MEDICINE</b></td>
+      <td><b>PSYCHOLOGY</b></td>
+    </tr>
+    <tr>
+      <th>GENERAL SURGERY</th>
+      <td><b>HAEMATOLOGY</td><b></td>
+      <td><b>PRIMARY CARE</b></td>
+      <td><b>NEUROSCIENCE</b></td>
+    </tr>
+    <tr>
+      <th>NEPHROLOGY</th>
+      <td><b>NUTRITIONIST</b></td>
+      <td><b>GYNECOLOGY</b></td>
+      <td><b>OPTHAMOLOGY</b></td>
+    </tr>
+  </tbody>
+</table>
+     </p>
+  </section>
+
+
+  <style>
+    #header {
+      background: url("https://i.pinimg.com/originals/5c/9d/fb/5c9dfb06e1346beb5af50acb296b759c.jpg");
+      background-repeat : no-repeat;
+      background-size : 1500px;
+    }
+  </style>
+
+  <style>
+  	#hello{
+  	padding: 25px;
+    background: url("https://image.freepik.com/free-photo/smoke-abstract-background-light-pastel-colors_89245-89.jpg");
+    background-repeat: no-repeat;
+    background-size: 2000px 2000px;
+    }
+  	
+
+
+  </style>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Welcome DOC!</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    p,
+    ul {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: x-large;
+      letter-spacing: 3px;
+      font-style: oblique;
+      line-height: 150%;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="/" style='font-size: 40px;'>PATREC</a>
+
+
+
+    <div>
+      
+       <a class="navbar-brand" href="/back"> GO TO DASHBOARD </a> &nbsp;&nbsp;&nbsp;&nbsp;   
+
+
+      <a class="navbar-brand" href="/logout">LOGOUT </button></a>
+    </div>
+  </nav>
+
+
+
+  <br>
+
+  <center> <b>
+      <h1>MEDICAL BLOCK RECORDS</h1>
+    </b></center><br><br>
+  
+
+    {% for post in posts %}
+    
+    
+         <form action="/display" method="post">
+          {% if post._id !='' %}
+<center>
+          <div class="card-center">
+            <h5 class="card-header">RECORD  :  {{post._id}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-success" >View </button></h5> 
+          
+          
+          <div class="card-body">
+              <h5>
+                  Type:       <b>{{ post.type}}</b>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created on: <b>{{post.timestamp}}</b>
+              
+              <input type="hidden" name="_id" value={{ post['_id' ] }}>
+              <input type="hidden" name="owner" value={{ post['owner'] }}>
+              
+            </h5>
+            </div>
+          </center>
+          </div>
+          
+          {% endif %}
+       
+        </form>
+       
+       
+       
+   
+      <br><br>
+      {% endfor %}
+      <br><br>
+<center><b><h3>Awaiting Confirmation </h3></b></center>
+      <br>
+      <table class="ui single line table">
+        <thead>
+          <tr>
+            <th>Record Name</th>
+            <th>Creation Date</th>
+            <th>Creator</th>
+            <th>Type</th>
+            <th>status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for w in wait %}
+          <tr>
+            <form action="/cancel" method="POST">
+            <td>{{ w._id}}</td>
+            <td>{{ w.timestamp }}</td>
+            <td>{{ w.creator }}</td>
+            <td>{{ w.type }}</td>
+            <input type="hidden" name="_id" value={{ w._id }}>
+            <input type="hidden" name="owner" value={{ w.owner}}>
+            <input type="hidden" name="accessor" value={{ session['user'] }}>
+            <td><button class="btn btn-danger" type="submit">
+              Cancel
+            </button></td>
+          </form>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    
+
+
+</body>
+
+</html>

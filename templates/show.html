@@ -1,0 +1,72 @@
+<html>
+<head>
+	<title>SHOW</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body id="hello">
+
+<section id="header" class="jumbotron text-center">
+ <h2 class="display-4"> <font color="white"> SHOWING RESULTS FOR {{ special }} SPECIALISTS <i class="fa fa-stethoscope fa-2x" aria-hidden="true"></i></font> </h2> 
+  </section>
+
+  	
+	<div class="container">
+		{% for p in posts%}
+		 	<div class="jumbotron">
+  		 		 <h2 class="display-4"> Dr.  {{ p.docname }} </h2>  <i class="fa fa-star fa-2x" aria-hidden="true" align="right"></i> <i class="fa fa-star fa-2x" aria-hidden="true" align="right"></i><i class="fa fa-star fa-2x" aria-hidden="true" align="right"></i> <br>
+
+  		 		  <img src="https://www.simplifai.ai/wp-content/uploads/2019/06/blank-profile-picture-973460_960_720.png"  align="left" height="185" width="200"> <br>
+	                <br>
+  		    		<p class="lead"> <b> {{ p.specialization }}  SPECIALIST  </b></p> <br>
+  		    		 <p id="font"><b> QUALIFICATION : </b> {{ p.qualification }}  </p> <br> 
+  		    		  <p> <b> ADDRESS : </b> {{ p.address }} </p>
+  		    		  <p> <b> MORE ABOUT {{ p.docname }} : {{ p.moreabout }} </b> </p>
+
+  		    		  <p> <b> FOR DETAILS CONTACT :</b> {{ p.number }} </p>
+
+  		    		   <i class="fa fa-certificate fa-2x" aria-hidden="true"> verified provider</i>
+		
+ 	          		 <hr class="my-2">
+ 	        </div>
+		{% endfor %}
+	</div>
+
+
+	<style>
+    #header {
+     background: url("https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1132668505%2F960x0.jpg%3Ffit%3Dscale");
+    }
+  </style>
+
+  <style>
+  	#hello{
+  	padding: 25px;
+    background: url("https://i.pinimg.com/originals/29/9f/29/299f2974a12149f7fbe3425a002ab33d.jpg");
+    background-repeat: no-repeat;
+    background-size:  2100px;
+  	}
+
+
+
+  </style>
+
+	
+
+</body>
+
+</html>

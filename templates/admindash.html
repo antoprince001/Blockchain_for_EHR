@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Welcome ADMIN!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <style>
+body{
+      background-image: url("/static/img/docdash.jpg");
+      background-size :cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    .card{
+      
+      background-image : url("");
+      background-size :cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      opacity: 0.75;
+      filter: alpha(opacity=75);
+     
+
+    }
+    p,
+    ul {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: x-large;
+      letter-spacing: 3px;
+      font-style: oblique;
+      line-height: 150%;
+    }
+  </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/" style='font-size: 40px;'>PATREC</a>
+        
+    
+      
+      <div>
+        
+        <a class="navbar-brand" href="/logout">LOGOUT </button></a>
+      </div>
+    </nav>
+     
+
+  
+  <br>
+
+ <center> <font color="white"><b><h1>ADMIN DASHBOARD</h1></b></center></font>
+  <br>
+  <div class='container'>
+    <div class='row'>
+      <div class='col' style='box-shadow: 40em;'>
+        
+          <br><br>
+          <center>
+            <div class="card-transparent" style="width: 20rem; height: 25rem; box-shadow: 40em;">
+              <div style="font-size: 200px;"><i class="fa fa-user-md" aria-hidden="true"></i> </div>
+              <div class="card-body">
+                
+
+                <center><a href="/myacc" class="btn btn-primary">MY ACCOUNT</a></center>
+              </div>
+            </div>
+
+          </center>
+       
+      </div>
+
+      <div class='col' style='box-shadow: 40em;'>
+        <br><br>
+        <center>
+          <div class="card-transparent" style="width: 20rem; height: 25rem; box-shadow: 40em;">
+            <div style="font-size: 200px;"> <i class="fa fa-plus-square" aria-hidden="true"></i></div>
+            <div class="card-body">
+              <center><a href="/medrecord" class="btn btn-primary">CREATE RECORD</a></center>
+            </div>
+          </div>
+        </center>
+      </div>
+
+    </div>
+  </diV>
+  <br><br><br><br><br><br>
+  
+
+  <div class='container'>
+    <div class='row'>
+      
+
+      <div class='col'style='box-shadow: 40em;'>
+        <br><br>
+        <center>
+          <div class="card-transparent" style="width: 20rem; height: 25rem; box-shadow: 40em;">
+            <div style="font-size: 200px;"><i class="fa fa-book" aria-hidden="true"></i></div>
+            
+            <div class="card-body">
+              <center><a href="/docview" class="btn btn-primary">VIEW RECORDS</a></center>
+            </div>
+          </div>
+        </center>
+      </div>
+      <div class='col'style='box-shadow: 40em;'>
+          <br><br>
+          <center>
+            <div class="card-transparent" style="width: 20rem; height: 25rem;box-shadow: 40em;;">
+              <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
+              <div style="font-size: 200px;"><i class="fa fa-medkit fa-x-large" aria-hidden="true" ></i></div>
+              <div class="card-body">
+                
+                <center><a href="/available" class="btn btn-primary">AVAILABLE RECORD</a></center>
+              </div>
+            </div>
+          </center>
+        </div>
+
+    </div>
+  </div>
+  
+  
+  
+</body>
+</body>
+
+</html>

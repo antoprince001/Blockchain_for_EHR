@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Welcome DOC!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    p,
+    ul {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: x-large;
+      letter-spacing: 3px;
+      font-style: oblique;
+      line-height: 150%;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="/" style='font-size: 40px;'>PATREC</a>
+
+
+
+    <div>
+      
+      <a class="navbar-brand" href="/logout">LOGOUT </button></a>
+    </div>
+  </nav>
+
+
+
+  <br>
+
+  <center> <b>
+      <h1>MEDICAL BLOCK RECORD</h1>
+    </b></center><br><br>
+  
+  
+
+      <table>
+        <tr>
+          <tr>
+            <td>PATIENT RECORD ID</td>
+            <td>{{post._id}}</td>
+          </tr>
+        </tr>
+        <tr>
+          <td>DOCTOR</td>
+          <td>{{ post.doc }}</td>
+        </tr>
+        <tr>
+          <td>GLUCOSE(Random PP) </td>
+          <td>{{ post.gluc }}</td>
+          
+        </tr>
+        <tr>
+          <td>GLUCOSE(Fasting) </td>
+          <td>{{ post.glucf }}</td>
+          
+        </tr>
+        <tr>
+          <td>SERUM APPEARANCE</td>
+          <td>{{ post.serum }}</td>
+          
+        </tr>
+        <tr>
+          <td>HAEMOGLOBIN </td>
+          <td>{{ post.blood }}</td>
+          
+        </tr>
+        <tr>
+          <td>TOTAL CHOLESTROL </td>
+          <td>{{ post.chol }}</td>
+          
+        </tr>
+        <tr>
+          <td>HDL CHOLESTROL </td>
+          <td>{{ post.thdl }}</td>
+          
+        </tr>
+        <tr>
+          <td>LDL CHOLESTROL</td>
+          <td>{{ post.ldl }}</td>
+          
+        </tr>
+        <tr>
+          <td>RBC</td>
+          <td>{{ post.rbc }}</td>
+          
+        </tr>
+        <tr>
+          <td>PULSE</td>
+          <td>{{ post.pulse }}</td>
+          
+        </tr>
+        <tr>
+          <td>PREVIOUS Hash</td>
+          <td>{{ post.prev }}</td>
+          
+        </tr>
+        <tr>
+          <td>HASH</td>
+          <td>{{ post.hash}}</td>
+          
+        </tr>
+      </table>
+   
+
+    
+
+
+</body>
+
+</html>

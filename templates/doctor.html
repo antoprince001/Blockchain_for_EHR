@@ -1,0 +1,438 @@
+<!--<html>
+<head>
+	<title>
+		WELCOME DOCTOR !
+	</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"> </script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body id="bg">
+
+<section id="header" class="jumbotron text-center">
+    <h2 class="display-3"><font color="white">DOCTOR  PROFILE </font> </h2>
+  </section>
+
+
+<form action='/docver' method="POST" enctype="multipart/form-data">
+	<div class="container">
+  <div class="form-group">
+    <label for="docname">DOCTOR NAME</label>
+    <input type="text" class="form-control" id="na" name="doc" placeholder="NAME OF THE DOCTOR">
+  </div>
+   <div class="form-group">
+          <label for="gen"> GENDER </label>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+              <label class="custom-control-label" for="defaultUnchecked">MALE</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios" checked>
+              <label class="custom-control-label" for="defaultChecked">FEMALE</label>
+            </div>
+          </div>
+  <div class="form-group">
+    <label for="specialized">SPECIALIZATION</label>
+    <input type="text" class="form-control" id="sp" name="special" placeholder="SPECIALIZED IN">
+  </div>
+  <div class="form-group">
+    <label for="address">WORKPLACE</label>
+    <input type="text" class="form-control" id="address" name="add" placeholder="ADDRESS">
+  </div>
+  <div class="form-group">
+    <label for="qual">QUALIFICATION</label>
+    <input type="text" class="form-control" id="qual" name="qualific" placeholder="QUALIFICATION">
+  </div>
+   <div class="form-group">
+    <label for="grad"> GRADUATED FROM </label>
+    <input type="text" class="form-control" id="gra" name="grad" placeholder="PLACE OF STUDY">
+  </div>
+   <div class="form-group">
+    <label for="more">FURTHER DETAILS IF ANY </label>
+    <input type="text" class="form-control" id="about" name="more" placeholder="MORE ABOUT ME">
+  </div>
+  <div class="form-group">
+    <label for="contact"> WORKPLACE PHONE NUMBER </label>
+    <input type="text" class="form-control" id="number" name="num" placeholder="WORKPLACE CONTACT NUMBER">
+  </div>
+    <div class="form-group">
+    <label for="cont"> PERSONAL CONTACT NUMBER </label>
+    <input type="text" class="form-control" id="numberr" name="n" placeholder="PERSONAL NUMBER">
+  </div>
+  <div class="form-group">
+    <label for="pwd"> PASSWORD </label>
+    <input type="password" class="form-control" id="numberr" name="pwd" placeholder="ENTER PASSWORD">
+  </div>
+
+
+   <button type="submit" class="btn btn-primary" > SUBMIT </button>
+
+
+   
+</div>
+</form>
+
+<style>
+    #header {
+      background: url("https://singularityhub.com/wp-content/uploads/2018/03/neurons-brain-1-1068x601.jpg");
+      background-repeat : no-repeat;
+      background-size : 2000px;
+    }
+  </style>
+
+  <style>
+    #bg{
+    padding: 25px;
+    background: url("https://image.freepik.com/free-vector/abstract-soft-holographic-background-pastel-light-colors_108964-245.jpg");
+    background-repeat: no-repeat;
+    background-size: 2000px 2000px;
+    }
+
+
+
+  </style>
+
+
+
+
+</body>
+</html> -->
+
+
+
+<!--<html>
+
+<head>
+  <title> REGISTER HERE </title>
+  <script type="text/javascript">
+  </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <script src="//geodata.solutions/includes/countrystatecity.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <style>
+    .form-group{
+      font-color:white;
+    }
+    #header {
+      background: url("");
+    }
+  </style>
+
+  <style>
+    body,
+    html {
+      background-image: url("https://wallpaperaccess.com/full/136995.jpg");
+      
+      background-position: center;
+      background-size:100%;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+  </style>
+
+  <style>
+    .usr{
+      color: white;   
+    }
+    .display-4 {
+      color: black;
+    }
+  </style>
+
+</head>
+
+<body class="bg">
+  <nav class="navbar bg-dark navbar-dark">
+    <div class="container">
+      <a href="/" class="navbar-brand"><b>HOME</b></a>
+    </div>
+  </nav>
+
+  <section id="header" class="jumbotron text-center">
+    <h2 class="display-4" style="font-color: black;"><strong>SIGN UP TO BECOME A MEMBER OF PATREC-CHAIN</strong></h2>
+  </section>
+
+  <form action='/patcreate' method="POST">
+    <div class="container">
+      <div class="d-flex justify-content-center align-items-center container ">
+        <div class="form-group">
+          <label for="usr">FIRST NAME</label>
+          <input type="text" class="form-control" name="usr" required="required" >
+        </div>
+        <div class="form-group">
+          <label for="usr">LAST NAME</label>
+          <input type="text" class="form-control" name="lsn" >
+        </div>
+        <div class="form-group">
+          <label for="usr">PASSWORD</label>
+          <input type="password" class="form-control" name="pwd" required="required">
+        </div>
+        <div class="form-group">
+          <label for="usr"> GENDER </label>
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultexampleradio">
+            <label class="custom-control-label" for="defaultUnchecked" >MALE</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="defaultChecked" name="defaultexampleradio" >
+            <label class="custom-control-label" for="defaultChecked">FEMALE</label>
+          </div>
+        </div>
+
+        <div class="md-form">
+          <label for="date-picker-example">DATE OF BIRTH</label>
+          <input placeholder="Selected date" type="date" name="dob" class="form-control datepicker">
+        </div>
+
+        <div class="form-group">
+          <label for="age">AGE</label>
+          <input type="text" class="form-control" name="age">
+        </div>
+
+        <div class="form-group">
+          <label for="addres">ADDRESS</label>
+          <input type="text" class="form-control" name="addres">
+        </div>
+
+        
+        <div class="form-group">
+          <label for="country">COUNTRY </label><br>
+          <select name="country" class="countries order-alpha presel-IN"  id="countryId">
+            <option value="">Select Country</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="state">STATE </label>
+          <br>
+          <select name="state" class="states order-alpha" id="stateId" required="required">
+            <option value="">Select State</option>
+        </select>
+        </div>
+
+        <div class="form-group">
+          <label for="city">CITY </label><br>
+          <select name="city" class="cities order-alpha" id="cityId" required="required">
+            <option value="">Select City</option>
+        </select>
+        </div>
+      
+      
+     
+   
+  
+
+        <div class="form-group">
+          <label for="phone">PHONE </label>
+          <input type="text" class="form-control" name="ph">
+        </div>
+
+        <div class="form-group">
+          <label for="Aadhar">ENTER YOUR 12 DIGIT AADHAR PIN</label>
+          <input type="text" class="form-control" name="Aadhar">
+        </div>
+
+        <div class="form-group">
+          <label for="inputUserName" class="control-label">EMAIL</label>
+          <input type="email" class="form-control" name="inputUserName" aria-labelledby="emailnotification">
+        </div>
+
+        <div class="form-group">
+          <label for="gen"> ARE YOU CURRENTLY UNDER ANY MEDICATION ? </label>
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="yes" name="yes">
+            <label class="custom-control-label" for="true">Yes</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="no" name="no">
+            <label class="custom-control-label" for="fakse">No</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="txt">IF SO SPECIFY !</label>
+          <textarea class="form-control rounded-0" id="text" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <button type="submit" class="btn btn-primary">SUBMIT</button>
+      <button type="button" class="btn btn-info">RESET</button>
+    </div>
+  </form>
+</body>
+
+</html>-->
+
+
+
+<html>
+<head>
+<title>DOCTOR SIGNUP</title>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <script src="//geodata.solutions/includes/countrystatecity.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> </head>
+<body>
+
+  
+    <div class="loginbox">
+    <img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-and-shapes-3/177800/129-512.png" class="avatar">
+        <h1>DOCTOR LOGIN</h1>
+       <form action='/docver' method="POST">
+            <p>DOCTOR NAME</p>
+            <input type="text" name="doc" placeholder="DOCTOR NAME" autocomplete="off">
+             <p>GENDER</p>
+            <input type="text" name="gen" placeholder="M/F">
+            <p>DATE OF BIRTH</p>
+            <input type="date" name="dob" placeholder="DATE OF BIRTH"><font color="black"></font>
+            <p>AGE</p>
+            <input type="number" name="age" placeholder="AGE" autocomplete="off">
+              <p>SPECIALIZATION</p>
+            <input type="text" name="special" placeholder="SPECIALIZED IN" autocomplete="off">
+              <p>WORKPLACE</p>
+            <input type="text" name="add" placeholder="LOCATION" autocomplete="off">
+              <p>QUALIFICATION</p>
+            <input type="text" name="qualific" placeholder="QUALIFIED IN" autocomplete="off">
+             <p>GRADUATED FROM</p>
+            <input type="text" name="grad" placeholder="PURSUED FROM" autocomplete="off">
+             <p>FURTHER DETAILS IF ANY</p>
+            <input type="text" name="more" placeholder="ABOUT ME" autocomplete="off">
+             <p>WORKPLACE PHONE NUMBER</p>
+            <input type="text" name="num" placeholder="PHONE" autocomplete="off">
+             <p>PERSONAL CONTACT NUMBER </p>
+            <input type="text" name="n" placeholder="PHONE" autocomplete="off">
+             <p>Password</p>
+            <input type="password" name="pwd" placeholder="PASSWORD">
+              <br>
+             <input type="submit" name="" value="SIGN UP">
+      </div> 
+        </form>
+        
+    </div>
+
+</body>
+<style>
+body{
+    margin: 0;
+    padding: 0;
+    background: url(https://steamuserimages-a.akamaihd.net/ugc/922547399907984052/EE76D1B6C6741485769FB238C7B597C3189D0C3C/);
+    background-size: 1500px;
+    font-family: sans-serif;
+}
+
+.loginbox{
+    width: 490px;
+    height: 1200px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    margin-top:350px;
+}
+
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.loginbox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: green;
+    color: black;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.loginbox input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #ffc107;
+    color: green;
+}
+.loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.loginbox a:hover
+{
+    color: #ffc107;
+}
+
+</style>
+</html>

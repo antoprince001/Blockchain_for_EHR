@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript">
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+
+      title:{
+      text: " BLOOD SUGAR OF PAT001-2019"
+
+      },
+      axisX: {
+        valueFormatString: "MMM",
+        interval:1,
+        intervalType: "month"
+      },
+      axisY:{
+        includeZero: false
+
+      },
+      data: [
+      {
+        type: "line",
+
+        dataPoints: [
+        { x: new Date(2019, 00, 1), y: 315, indexLabel: "highest",markerColor: "red",markerType:"triangle"},
+        { x: new Date(2019, 01, 1), y: 280},
+          { x: new Date(2019, 02, 1), y: 250},
+        { x: new Date(2019, 03, 1), y: 198 },
+        { x: new Date(2019, 04, 1), y: 180 },
+        { x: new Date(2019, 05, 1), y: 150 },
+        { x: new Date(2019, 06, 1), y: 120 },
+        { x: new Date(2019, 07, 1), y: 108 },
+        { x: new Date(2019, 08, 1), y: 50 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross"},
+        { x: new Date(2019, 09, 1), y: 72 },
+        { x: new Date(2019, 10, 1), y: 70 },
+        { x: new Date(2019, 11, 1), y: 150 }
+        ]
+      }
+      ]
+    });
+
+    chart.render();
+  }
+  </script>
+ <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
+<body>
+  <div id="chartContainer" style="height: 300px; width: 100%;">
+  </div>
+</body>
+</html>

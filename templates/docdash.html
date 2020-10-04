@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Welcome Doc !</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <style>
+
+    p,
+    ul {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: x-large;
+      letter-spacing: 3px;
+      font-style: oblique;
+      line-height: 150%;
+    }
+
+    body{
+      background-image: url("/static/img/docdash.jpg");
+      background-size :cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    .card{
+      
+      background-image : url("");
+      background-size :cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      opacity: 0.75;
+      filter: alpha(opacity=75);
+     
+
+    }
+  </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark" >
+        <!--<a class="navbar-brand" href="/" style='text-shadow: 4px 4px white;color:black;font-size: 40px;font-weight: 700; '>PATREC</a>-->
+        <div class="container">
+          <h1><a href="/" type="button" class="but" ;"><i class="fa fa-home fa-2x" style="color: white;"></i></a></h1></div>
+
+        
+    
+      
+      <div>
+
+        
+
+        <a class="navbar-brand" href="/logout">LOGOUT </button></a>
+
+      </div>
+      
+    </nav>
+     
+
+  <!-- <div id='bgpic'>
+    <img src="/static/img/diff.jpeg" class="d-block w-100" alt="image" height="500">
+  </div> -->
+  <br>
+
+ <center><i><strong> <b><h1 style="font-weight: 700; text-shadow: 4px 4px white;">DASHBOARD OF {{ session['user'] }}</h1></b></strong></i></center>
+  <br>
+  <div class='container'>
+    <div class='row'>
+      <div class='col' style='box-shadow: 40em;'>
+        
+          <br><br>
+          <center>
+            <div class="card-transparent" style="width: 15rem; height: 20rem; box-shadow: 40em;">
+              
+                <!--<img src="/static/img/acc.png  " height="266" weight="259" class='card-img-top' height='300'> -->
+                <div style="font-size: 200px;"><i class="fa fa-user-md" aria-hidden="true"></i></div>
+              <div class="card-body">
+                
+
+                <center><a href="/myacc" class="btn btn-success">MY ACCOUNT</a></center>
+              </div>
+            </div>
+
+          </center>
+       
+      </div>
+
+      <div class='col' style='box-shadow: 40em;'>
+        <br><br>
+        <center>
+          <div class="card-transparent" style="width: 15rem; height: 20rem; box-shadow: 40em;">
+            <!--<img src="/static/img/Share.png" class="card-img-top" height="300"'> -->
+            <div style="font-size: 200px;"><i class="fa fa-plus-square" aria-hidden="true"></i></div>
+            <div class="card-body">
+              <center><a href="/medrecord" class="btn btn-success">CREATE RECORD</a></center>
+            </div>
+          </div>
+        </center>
+      </div>
+    
+
+       <!-- abi-->
+       <div class='col'style='box-shadow: 40em;'>
+        <br><br>
+        <center>
+          <div class="card-transparent" style="width: 15rem; height: 20rem; box-shadow: 40em;">
+            <div style="font-size: 200px;"><i class="fa fa-book" aria-hidden="true"></i></div>
+            
+            
+              <div class="card-body">
+                <center><a href="/docview" class="btn btn-success">REQUEST RECORD</a></center>
+              </div>
+            
+          </div>
+        </center>
+      </div>
+    
+      
+      
+
+      <div class='col'style='box-shadow: 40em;'>
+        <br><br>
+        <center>
+          <div class="card-transparent" style="width: 15rem; height: 20rem;box-shadow: 40em;;">
+            <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
+            <div style="font-size: 200px;"><i class="fa fa-medkit" aria-hidden="true" ></i></div>
+            <div class="card-body">
+              
+              <center><a href="/available" class="btn btn-success">AVAILABLE RECORDS</a></center>
+            </div>
+          </div>
+        </center>
+      </div>
+
+
+
+
+
+
+    </div>
+  </diV>
+  <br><br><br><br><br><br>
+
+
+    </div>
+  </div>
+  
+  
+  
+</body>
+</body>
+
+</html>

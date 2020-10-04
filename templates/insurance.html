@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		.container{
+  color: solid black;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  padding-top:15px;
+  padding-bottom:15px;
+  padding-left:15px;
+  padding-right:15px;
+  font-size:15px;
+
+		}
+		body{
+			background-image: url('/static/img/ins.jpg');
+			background-size: 100%;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+            }
+		.a {
+  color: solid black;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: 25px;
+}
+	</style>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<title>Insurance Cover</title>
+</head>
+<body>
+		<!-- button for home-->
+	<a href="/domain"><button  style="float:right;" type="button" class="btn btn-warning btn-lg" >Home</button></a>
+	<h1><strong>PATREC</strong>  <b><i>Welcome to Insurance page</i></b> </h1>
+    </br>
+    </br>
+    </br>
+    <!-- para about-->
+    <h1 style="font-size:30px; padding-left: 25px;"><b><i>About</i></b></h1>
+    <p style="font-size: 20px; padding-left: 25px;padding-right: 25px;"><strong>Health insurance is an insurance that covers the whole or a part of the risk of a person incurring medical expenses, spreading the risk over numerous persons. By estimating the overall risk of health care and health system expenses over the risk pool, an insurer can develop a routine finance structure, such as a monthly premium or payroll tax, to provide the money to pay for the health care benefits specified in the insurance agreement. The benefit is administered by a central organization such as a government agency, private business, or not-for-profit entity.</i></br>
+   According to the Health Insurance Association of America, health insurance is defined as "coverage that provides for the payments of benefits as a result of sickness or injury. It includes insurance for losses from accident, medical expense, disability, or accidental death and dismemberment"</strong></p>
+   	</br>
+   	<!-- button for insurance application-->
+   	<a href="/apply"><button style="float: center;" type="button" class="btn btn-primary btn-lg">Apply for Insurance?</button></a>
+   </br>
+</br>
+<!-- claim form-->
+   	<h1><strong>Claim Application Form</strong></h1>
+   	<form class="a" action="">
+   		 <label for="no"><strong>Policy Number:</strong></label>
+      <input type="number" class="form-control" id="no" name="no" placeholder="123456789 / 123456789 / 123456789"  required="">
+   		<p style="font-size: 20px;"><i><strong>(Please enter the policy number)</strong></i></p>
+   	</br>
+   	 <label for="name"><strong>Name of the Life insured:</strong></label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter name of the insurance holder" required=""></br>
+      <p style="font-size: 20px;"><i><strong>
+      (Through whom you are submitting the document claim kindly select one)</strong></i></p> 
+      <div class="form-row">
+      		 <div class="col">
+     <label style="font-size: 20px;" class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="advisor"><strong>Agent Advisor</strong>
+      </label></br></div>
+      <div class="col">
+     <label style="font-size: 20px;" class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="company"><strong>Insurance Company</strong>
+      </label></br></div>
+      <div class="col">
+      <label style="font-size: 20px;" class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="other"><strong>Any Other</strong>
+      </label><p style="font-size: 20px;"><i><strong>(Please specify)</strong></i><input type="text" name="other1"></p></br></div>
+      </div>
+      <!-- selection a form-->
+      <h1 style="font-size: 20px;"><b>Section A(please fill out yourself)</b></h1>
+  <div class="container">
+      	<div class="form-row">
+      		 <div class="col">
+      		<label for="yourname"><strong>Your Name</strong></label>
+      <input type="text" class="form-control" id="yourname" name="yourname" placeholder="Enter your name" required=""> </div>
+       <div class="col">
+      <label for="yourage"><strong>Your Age</strong></label>
+      <input type="number" class="form-control" id="yourname" name="yourage" placeholder="Enter your age" required=""> </div>
+  </div></br>
+  <div class="form-row">
+      		 <div class="col">
+      		 	<label for="yournumber"><strong>Your mobile Number</strong></label>
+      <input type="number" class="form-control" id="yournumber" name="yournumber" placeholder="+91 1234567890" required=""> </div>
+      <div class="col">
+      		 	<label for="youraltnumber"><strong>Your alternate mobile Number</strong></label>
+      <input type="number" class="form-control" id="youraltnumber" name="youraltnumber" placeholder="+91 1234567890" required=""> </div>
+  </div>
+  	<label for="email"><strong>Your Email Id</strong></label>
+      <input type="email" class="form-control" id="youremail" name="youremail" placeholder="sample@gmail.com" required=""></br> 
+<label for="aadhar"><strong>Your Aadhar Number</strong></label>
+      <input type="number" class="form-control" id="youraadhar" name="youraadhar" placeholder="xxxx xxxx xxxx" required=""></br>
+      <label for="relationship"><strong>Your relationship with Insurance Holder</strong></label>
+      <input type="text" class="form-control" id="relationship" name="relationship" placeholder="father/mother/spouse..." required=""> </br>
+       
+<label for="add"><strong>Your Complete Address</strong></label>
+      <input type="address" class="form-control" id="add" name="add" placeholder="Door number/street/area/city/state/pincode...." required=""> </br>
+      <button  class="btn btn-primary btn-lg">Submit</button>
+      
+  </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		body{
+			background-image: url("/static/img/ins.jpg");
+			background-size: 100%;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+            }
+            .container{
+  color: solid black;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  padding-top:15px;
+  padding-bottom:15px;
+  padding-left:15px;
+  padding-right:15px;
+  font-size:15px;
+
+		}
+	</style>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<title>Application for Insurance</title>
+</head>
+<body>
+	<h1 style="font-size:40px;color: solid black;text-align:center;"><strong>Welcome</strong></h1>
+	<h2 style="font-size: 20px;color: solid black;text-align: center;"><i>Fill up the form below to get a beneficiary Life Insurance</i></h2></br>
+	<div class="container">
+		<div class="progress" style="height: 50px;">
+    <div class="progress-bar bg-dark" style="width:100%;font-size: 30px;"><i>1. Your Personal Information</i></div>
+  </div></br>
+  <label for="aadhar"><strong>Your Aadhar Number</strong></label>
+      <input type="number" class="form-control" id="youraadhar" name="youraadhar" placeholder="xxxx xxxx xxxx" required=""></br>
+		<div class="form-row">
+      		 <div class="col">
+      		 	<label for="dob"><strong>Date of birth</strong></label>
+      <input type="number" class="form-control" id="dob" name="dob" placeholder="dd-mm-yyyy" required=""> </div>
+      <div class="col">
+      		 	<label for="doh"><strong>Date of hire</strong></label>
+      <input type="number" class="form-control" id="doh" name="doh" placeholder="dd-mm-yyyy" required=""> </div>
+  </div></br>
+  <label for="fn"><strong>First name</strong></label>
+      <input type="text" class="form-control" id="fn" name="fn" placeholder="First Name" required=""></br>
+<label for="ln"><strong>Last Name</strong></label>
+      <input type="text" class="form-control" id="ln" name="ln" placeholder="Last Name" required=""></br>
+      <label for="email"><strong>Email Address</strong></label>
+      <input type="email" class="form-control" id="email" name="ln" placeholder="Email address" required=""></br>
+      <label for="add"><strong>Address</strong></label>
+      <input type="text" class="form-control" id="add" name="add" placeholder="Door number/street/area/city/state/pincode...." required=""></br>
+      <h2 style="font-size: 20px;color: solid black;">Select one below</h2>
+      <div class="form-row">
+      		 <div class="col">
+     <label style="font-size: 20px;padding-left: 50px;" class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="single"><strong>Single</strong>
+      </label></br></div>
+      <div class="col">
+     <label style="font-size: 20px;" class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="married"><strong>Married</strong>
+      </label></br></div></div></br>
+      <p style="text-align: center;font-size: 20px;"><i><strong>(For office use)</strong></i></p></br>
+       <label for="ne"><strong>Name of the employee</strong></label>
+      <input type="text" class="form-control" id="ne" name="ne" placeholder="Name of the employee" required=""></br>
+       <div class="form-row">
+      		 <div class="col">
+       <label for="pn"><strong>Plan Number</strong></label>
+      <input type="number" class="form-control" id="pn" name="pn" placeholder="Plan number if known xxxx xxxx" required=""></br></div>
+       <div class="col">
+      <label for="ec"><strong>Employee City</strong></label>
+      <input type="text" class="form-control" id="ec" name="ec" placeholder="Employee City" required=""></br></div>
+  </div>
+  <div class="progress" style="height: 50px;">
+    <div class="progress-bar bg-dark" style="width:100%;font-size: 30px;"><i>2.Select your Inverstment plan </i></div>
+  </div></br>
+       <label style="padding-left: 50px;" class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="p1"><p style="font-size: 30px;"><strong>Monthly Five Hundred Rupees only</strong></p>
+      </label></br>
+      <label style="padding-left: 50px;" class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="p2"><p style="font-size: 30px;"><strong>Monthly one thousand Rupees only</strong></p>
+      </label></br>
+      <label style="padding-left: 50px;" class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="p3"><p style="font-size: 30px;"><strong>Monthly two thousand Rupees only</strong></p>
+      </label></br>
+      <label style="padding-left: 50px;" class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="p4"><p style="font-size: 30px;"><strong>Monthly Five thousand Rupees only</strong></p>
+      </label></br>
+    <button  class="btn btn-primary btn-lg">Submit</button>
+ </div>
+</body>
+</html>

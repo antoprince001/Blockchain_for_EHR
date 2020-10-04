@@ -1,0 +1,94 @@
+<html>
+<head>
+	<title> NEW POST </title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+</head>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href='#'>MEDBLOG</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/">HOME</a></li>
+    </ul>
+</nav>
+
+	
+<body id="hello">
+
+<div class="container" id="cont">
+   
+
+      <form action="/deletepost" method="POST">
+
+        <h3> <b> DELETE POST </b></h3>
+        <div class="form-group">
+          <label for="title"> ENTER POST ID </label>
+          <input type="text" class="form-control" id="pid" name="pid" placeholder="ID OF YOUR POST">
+        </div>
+         <div class="form-group">
+          <label for="text"> TITLE OF THE POST </label>
+          <input type="text" class="form-control" id="tit" name="title" placeholder="TOPIC OF YOUR POST">
+        </div>
+        
+        <div class="form-group">
+           <label for="text"> IS THE POST CREATED BY YOU ? </label> <br>
+                      <input type="radio" name="yes" id="y">YES<br>
+                      <input type="radio" name="no" id="n" onclick="check()">NO<br>
+                      <script>
+                        function check()
+                        {
+                          if((document.getElementById("n").checked) === true )
+                            window.alert("YOU CANNOT DELETE THIS POST")
+                        }
+                      </script>
+
+                      <br>
+                      <br>
+
+                        <button type="submit" class="btn btn-primary"> SUBMIT </button>
+        
+          </div>
+        
+      </form>
+
+     
+</div>
+
+</body>
+
+<style>
+
+#cont {
+  background-color: lightgrey;
+  width: 1000px;
+  height: 530px;
+  align-items: center
+  border: 1px solid black;
+  padding: 30px;
+}
+
+#hello{
+    background: url("http://eskipaper.com/images/light-wallpaper-13.jpg");
+    background-repeat: no-repeat;
+    background-size:  1380px;
+  
+}
+
+</style>
+
+
+
+</html>

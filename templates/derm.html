@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="design.css">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Solway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, textarea, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 38px;
+      color: #fff;
+      z-index: 2;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 25px 0 #892e9b; 
+      }
+      .banner {
+      position: relative;
+      height: 210px;
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQPX8iTTVjUgLqiHov7BN4HMCRhIx-LfNESLOifYGvAs0hsdsMY");  
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.3); 
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      input[type="date"] {
+      padding: 4px 5px;
+      }
+      select {
+      width: 100%;
+      padding: 7px 0;
+      background: transparent;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      color: #892e9b;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 6px 0 #892e9b;
+      color: #892e9b;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      }
+      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      font-size: 20px;
+      color: #a9a9a9;
+      }
+      .item i {
+      right: 2%;
+      top: 30px;
+      z-index: 1;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 1%;
+      z-index: 2;
+      opacity: 0;
+      cursor: pointer;
+      }
+      input[type=radio], input[type=checkbox]  {
+      display: none;
+      }
+      label.radio {
+      position: relative;
+      display: inline-block;
+      margin: 5px 20px 15px 0;
+      cursor: pointer;
+      }
+      .question span {
+      margin-left: 30px;
+      }
+      label.radio:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      }
+      input[type=radio]:checked + label:before, label.radio:hover:before {
+      border: 2px solid #892e9b;
+      }
+      label.radio:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 5px;
+      width: 8px;
+      height: 4px;
+      border: 3px solid #892e9b;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+      }
+      input[type=radio]:checked + label:after {
+      opacity: 1;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px; 
+      background: #892e9b;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background: #b52ed1;
+      }
+      span.required {
+      color: red;
+      }
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .name-item input, .city-item input {
+      width: calc(50% - 20px);
+      }
+      .city-item select {
+      width: calc(50% - 8px);
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="testbox">
+      <form action="/">
+        <div class="banner">
+          <h1>DERMATOLOGY</h1>
+          
+        </div>
+        <p class="top-info">Kindly fill the details after or under the supervision of a dermatologist.</p>
+        <div class="item">
+          <p>Patient ID<span class="required">*</span></p>
+          <input type="text" name="pid" required/>
+        </div>
+        <div class="item">
+          <p>Acne Vulgaris</p>
+          <input type="textarea" rows="3" name="Acne_Vulgaris">
+        </div>
+
+        <div class="item">
+          <p>Biopsy Details</p>
+          <textarea rows="3"></textarea>
+        </div>
+
+        <div class="question">
+          <p>Cutaneous vascular disease</p>
+          <div class="question-answer">
+            <div>
+              <input type="radio" value="Present" id="radio" name="Cutaneous vascular disease"/>
+              <label for="radio_1" class="radio"><span>Present</span></label>
+            </div>
+            <div>
+              <input type="radio" value="Absent" id="radio_2" name="Cutaneous vascular disease"/>
+              <label for="radio_2" class="radio"><span>Absent</span></label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="question">
+          <p>Diseases of the skin appendages</p>
+          <div class="question-answer">
+            <div>
+              <input type="radio" value="none" id="radio_1" name="gender"/>
+              <label for="radio_1" class="radio"><span>Present</span></label>
+            </div>
+            <div>
+              <input type="radio" value="none" id="radio_2" name="gender"/>
+              <label for="radio_2" class="radio"><span>Absent</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <p>If so mention type.</p>
+          <input type="email" name="email" placeholder="enter details"/>
+         </div>
+
+         <div class="question">
+          <p>Pigment anomalies</p>
+          <div class="question-answer">
+            <div>
+              <input type="radio" value="none" id="radio_1" name="gender"/>
+              <label for="radio_1" class="radio"><span>Present</span></label>
+            </div>
+            <div>
+              <input type="radio" value="none" id="radio_2" name="gender"/>
+              <label for="radio_2" class="radio"><span>Absent</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <p>If so mention type.</p>
+          <input type="text" name="hj" placeholder="enter details"/>
+         </div>
+
+         <p><h4><strong>PREVIOUS BIOSPSY RESULTS (optional)</strong></h4></p>
+                <section id="gallery">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="card">
+                    <img class="card-img-top"
+                      src="https://cdn1.iconfinder.com/data/icons/set-task1-set10-medical-line/128/Set_10-Medical-Line-08-128.png"
+                      alt="Girl in a jacket" width="200" height="200">
+                    <div class="card-body">
+                      <h4 class="card-title"><b>CLICK HERE TO UPLOAD  REPORT</b></h4>
+                      <a href="" class="btn btn-primary btn-lg">PROCEED</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+
+
+        
+        <div class="btn-block">
+          <button type="submit" href="/">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

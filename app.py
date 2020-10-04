@@ -26,7 +26,7 @@ states=["Andhra Pradesh","Arunachal Pradesh ","Assam","Bihar","Chhattisgarh","Go
         'haemo':'',
         'blood':'',
 
-         
+
     }]'''
 
 login_status=0
@@ -134,8 +134,8 @@ def linkedacc():
     outcontro=[]
     for i in myval:
         outcontro.append(i)
-    return render_template('linkedacc.html',mycontrol=mycontro,outcontrol=outcontro)    
-    
+    return render_template('linkedacc.html',mycontrol=mycontro,outcontrol=outcontro)
+
 
 @app.route('/deleteguard',methods=['post'])
 def deleteguard():
@@ -204,7 +204,7 @@ def createblock():
 
     }
 
-    block_string = json.dumps(block, sort_keys=True) 
+    block_string = json.dumps(block, sort_keys=True)
     hashval=sha256(block_string.encode()).hexdigest()
     block={
         '_id': pid+'REC'+str(ind+1),
@@ -280,7 +280,7 @@ def genadd():
         'prev': prevs,
         'timestamp':st
         }
-    block_string = json.dumps(block, sort_keys=True) 
+    block_string = json.dumps(block, sort_keys=True)
     hashval=sha256(block_string.encode()).hexdigest()
     block={
         '_id':pid+'REC'+str(ind+1),
@@ -333,7 +333,7 @@ def genadder():
     myrow.insert_one(block)
     return redirect(url_for('back'))
 
-    
+
 
 
 #Basic clinical details
@@ -383,7 +383,7 @@ def biocadd():
         'prev': prevs,
         'timestamp':st
         }
-    block_string = json.dumps(block, sort_keys=True) 
+    block_string = json.dumps(block, sort_keys=True)
     hashval=sha256(block_string.encode()).hexdigest()
     block={
         '_id':pid+'REC'+str(ind+1),
@@ -496,7 +496,7 @@ def cardiacadd():
         'ANGIOGRAM':an.filename,
         'prev': prevs,
         'timestamp':st}
-    block_string = json.dumps(block, sort_keys=True) 
+    block_string = json.dumps(block, sort_keys=True)
     hashval=sha256(block_string.encode()).hexdigest()
     if f.filename!='':
         f.save(secure_filename(f.filename))
@@ -513,7 +513,7 @@ def cardiacadd():
             block['ECGSCAN']=str(new_file['Hash'])
         if block['EST']!='':
             new_file = api.add(block['EST'])
-            block['ESTSCAN']=str(new_file['Hash'])   
+            block['ESTSCAN']=str(new_file['Hash'])
         if block['ANGIOGRAM']!='':
             new_file = api.add(block['ANGIOGRAM'])
             block['ANGSCAN']=str(new_file['Hash'])
@@ -524,17 +524,17 @@ def cardiacadd():
         #webbrowser.open(link)
     except ipfshttpclient.exceptions.ConnectionError as ce:
         error='Could not add files'
-            
+
     block['hash']=hashval
     type='cardiacadder'
     return render_template('disp.html',posts=block,direct=type)
 
 @app.route('/cardiacadder',methods=['post'])
-def cardiacadder(): 
+def cardiacadder():
     '''{
         '_id':request.form['_id'],
         'owner':request.form['owner'],
-        'type':'Cardiac Report', 
+        'type':'Cardiac Report',
         'creator':session['user'],
         'CHOLESTROL': request.form['CHOLESTROL'],
         'TRIGYCERIDES':request.form['TRIGYCERIDES'],
@@ -542,7 +542,7 @@ def cardiacadder():
         'hash':request.form['hash'],
         'prev': request.form['prev'],
         'timestamp':request.form['timestamp']}'''
-    
+
     block=dict(request.form)
     myrow=mydb[request.form['owner']]
     myrow.insert_one(block)
@@ -571,7 +571,7 @@ def signup():
     return render_template('signup.html')
 
 
-#PATIENT 
+#PATIENT
 
 #Patient signup
 @app.route('/patient')
@@ -592,7 +592,7 @@ def patientverify():
     userid=request.form['PID']
     pwd=request.form['pwd']
     patquery = { "_id": userid }
-    
+
     patdoc= mycol.find(patquery)
     for x in patdoc:
         if check_encrypted_password(pwd,x['passwd']):
@@ -614,9 +614,9 @@ def patcreate():
     age=request.form['age']
     city=request.form['city']
     state=request.form['state']
-    ''' 
+    '''
      try:
-        statecode='0'+str(state.index(state)) 
+        statecode='0'+str(state.index(state))
     except:
         statecode='040
     '''
@@ -627,11 +627,11 @@ def patcreate():
     st=now.strftime("%Y-%m-%d %H:%M:%S")
     myrow=mydb['Blockhead']
     patdoc= myrow.find()
-    ind=-1 
+    ind=-1
     for x in patdoc:
         prev=x['hash']
         ind=ind+1
-    
+
     i='PAT00'+str(ind+1)
     block={
     '_id':i,
@@ -645,7 +645,7 @@ def patcreate():
     'aadhar':aadhar,
     'prevhash':prev
 }
-    block_string = json.dumps(block, sort_keys=True) 
+    block_string = json.dumps(block, sort_keys=True)
     hashval=sha256(block_string.encode()).hexdigest()
     session['user']=i
     block={
@@ -682,7 +682,7 @@ def patcreate():
         'prev': '0',
 
     }
-    block_s = json.dumps(rec, sort_keys=True) 
+    block_s = json.dumps(rec, sort_keys=True)
     hashrec=sha256(block_s.encode()).hexdigest()
     rec={
         '_id':i+'REC'+'00',
@@ -704,7 +704,7 @@ def patcreate():
 
     myrow.insert_one(rec)
     mycol.insert_one(block)
-    
+
     Blockc=[]
     Bloc=mycol.find()
     for i in Bloc:
@@ -727,14 +727,14 @@ def patdash():
 @app.route('/patacc')
 def views():
     patquery = { "_id": session['user'] }#sess.username
-    
+
     patdoc= mycol.find_one(patquery)
-    
+
     return render_template('patmyacc.html',post=patdoc)
 
 #View current patient's record
 @app.route('/viewrec',methods=['POST'])
-def viewrec(): 
+def viewrec():
     s=request.form['owner']
     myrow=mydb[s]#change
     recs=myrow.find()
@@ -742,7 +742,7 @@ def viewrec():
     for x in recs:
         records.append(x)
     return render_template('records.html',posts=records)
-        
+
 
 
 
@@ -775,7 +775,7 @@ def doclog():
 
 #Doctor credential verification
 @app.route('/doclogover',methods=['POST'])
-def doclogver():   
+def doclogver():
         userid=request.form['DID']
         pwd=request.form['pwd']
         patquery = { "_id": userid }
@@ -791,7 +791,7 @@ def doclogver():
 #Doctor account creation
 @app.route('/docver',methods=['POST'])
 def docverify():
-        
+
         name=request.form['doc']
         specialization=request.form['special']
         address=request.form['add']
@@ -812,7 +812,7 @@ def docverify():
                 ind=ind+1
         doc={
             '_id':'DOC'+str(ind+1),
-            'docname' : name , 
+            'docname' : name ,
             'specialization' : specialization,
             'address' : address,
             'qualification': qualification,
@@ -903,7 +903,7 @@ def createcon():
     if 'user' not in session:
         return render_template('domain.html')
 
-    
+
     ts=time.time()
     st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
     accessor=request.form['accessor']
@@ -921,7 +921,7 @@ def createcon():
     }
     #myval.insert_one(con)
     return render_template('contractred.html',posts=con)
-    
+
 
 @app.route('/back')
 def back():
@@ -942,7 +942,7 @@ def display():
         return render_template('domain.html')
     block={
         '_id':request.form['_id']
-    } 
+    }
     mycol=mydb[request.form['owner']]
     myview=mycol.find_one(block)
     if myview:
@@ -1133,7 +1133,7 @@ def accesslog():
     block.reverse()
             #sess.id=x['accessor']
     return render_template('accesslog.html',posts=block)
-    
+
 
 @app.route('/available')
 def available():
@@ -1168,7 +1168,7 @@ def available():
                     Blockc.append(y)
                 else:
                     Block.append(y)
-    
+
 
     return render_template('available.html',posts=Blockc,wait=Block)
 #bAPP_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -1228,8 +1228,8 @@ def medrec():
         return render_template('domain.html')
 @app.route('/logout')
 def logout():
-    if 'user' in session:  
-        session.pop('user',None)  
+    if 'user' in session:
+        session.pop('user',None)
     return render_template('domain.html')
 
 
@@ -1263,7 +1263,7 @@ def result():
     today = date.today()
     d = today.strftime("%B %d, %Y")
     onepost = mycolh.find()
-    
+
     for x in onepost:
         i=i+1
     block ={
@@ -1338,5 +1338,4 @@ def updatepost():
 
 
 if __name__=='__main__':
-    app.run()
-
+    app.run(port = int(os.environ.get('PORT', 5000)))

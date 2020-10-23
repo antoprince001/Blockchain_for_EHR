@@ -1338,4 +1338,4 @@ def updatepost():
 
 
 if __name__=='__main__':
-    app.run(port = process.env.PORT || 5000))
+    app.run(port = process.env.PORT or 5000))

@@ -33,7 +33,13 @@
 
     tr:nth-child(even) {
       background-color: #dddddd;
+      opacity: 0.85;
     }
+    tr:nth-child(odd) {
+      background-color: white;
+      opacity: 0.85;
+    }
+
 
     p,
     ul {
@@ -42,6 +48,12 @@
       letter-spacing: 3px;
       font-style: oblique;
       line-height: 150%;
+    }
+    body{
+      background-image: url("/static/img/docacc.jpg");
+      background-size :cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
   </style>
 
@@ -54,8 +66,8 @@
 
 
     <div>
-      <a class="navbar-brand" href="/back">GO TO DASHBOARD </a>
-      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="navbar-brand" href="/back"> GO TO DASHBOARD  </a> &nbsp;&nbsp;&nbsp;&nbsp;
+
       <a class="navbar-brand" href="/logout">LOGOUT </button></a>
     </div>
   </nav>
@@ -66,7 +78,7 @@
 
   <center> <b>
       <h1>ACCOUNT INFORMATION</h1> <br><br>
-      <div class="card" style="width: 20rem; height: 25rem;box-shadow: 40em;;">
+      <div class="card" style="width: 20rem; height: 25rem;box-shadow: 40em;opacity: 0.85;">
         <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
         <div style="font-size: 200px;"><i class="fa fa-user fa-x-large" aria-hidden="true" ></i></div>
         <div class="card-body">
@@ -80,7 +92,6 @@
     <br></center><br><br>
        
           <table>
-            
             {% for i in post %}
             <tr>
               <td>{{ i }}</td>
@@ -98,7 +109,7 @@
         <center>
           <div class="container">
                 <div class="list-group-w-50">
-                  <a  class="list-group-item list-group-item-action active">
+                  <a  class="list-group-item list-group-item-action active" style="background-color: black;">
                   <h3>GUARDIAN  ACCOUNT</h3>
                   </a>
                   

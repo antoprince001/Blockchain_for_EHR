@@ -49,8 +49,9 @@
 
 
     <div>
-      <a class="navbar-brand" href="/back">GO TO DASHBOARD </a>
-      &nbsp;&nbsp;&nbsp;&nbsp;
+      
+       <a class="navbar-brand" href="/back"> GO TO DASHBOARD </a> &nbsp;&nbsp;&nbsp;&nbsp;   
+
       <a class="navbar-brand" href="/logout">LOGOUT </button></a>
     </div>
   </nav>
@@ -67,14 +68,14 @@
 
     <center><h3>RECORD ID: {{post._id}} <br> <br> CREATED ON:  <b>{{post.timestamp}}</b></h3></center>
       <table>
-        <tr>
+    <tr>
 
           {% for i in post %}
           <tr>
             
             {% if i.find('SCAN')!=-1 %}
                      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ i }}</td>
-                     <td><a class='btn-btn-warning' href={{ 'http://localhost:8080/ipfs/'+ post[i] }} target='_blank'>CLICK TO VIEW</a></td>
+                     <td><a class='btn-btn-warning' href={{ "http://localhost:8080/ipfs/"+ post[i] }} target='_blank'>CLICK TO VIEW</a></td>
            {% endif %}
            {% if(i!='prev' and i!='hash'  and post[i]!='' and i.find('SCAN')==-1) %}
             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ i }}</td>
@@ -82,7 +83,7 @@
             {% endif %}
           </tr>
           {% endfor %}
-        
+        </tr>
         
         
        

@@ -12,7 +12,24 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
   <style>
+body{
+      background-image: url("/static/img/docdash.jpg");
+      background-size :cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
 
+    .card{
+      
+      background-image : url("");
+      background-size :cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      opacity: 0.75;
+      filter: alpha(opacity=75);
+     
+
+    }
     p,
     ul {
       font-family: Arial, Helvetica, sans-serif;
@@ -32,9 +49,7 @@
     
       
       <div>
-        <a class="navbar-brand" href="/back">GO TO DASHBOARD </button></a>
-     &nbsp;&nbsp;&nbsp;&nbsp;
-
+        
         <a class="navbar-brand" href="/logout">LOGOUT </button></a>
       </div>
     </nav>
@@ -43,7 +58,7 @@
   
   <br>
 
- <center> <b><h1>ADMIN DASHBOARD</h1></b></center>
+ <center> <font color="white"><b><h1>ADMIN DASHBOARD</h1></b></center></font>
   <br>
   <div class='container'>
     <div class='row'>
@@ -51,7 +66,7 @@
         
           <br><br>
           <center>
-            <div class="card" style="width: 20rem; height: 25rem; box-shadow: 40em;">
+            <div class="card-transparent" style="width: 20rem; height: 25rem; box-shadow: 40em;">
               <div style="font-size: 200px;"><i class="fa fa-user-md" aria-hidden="true"></i> </div>
               <div class="card-body">
                 
@@ -67,7 +82,7 @@
       <div class='col' style='box-shadow: 40em;'>
         <br><br>
         <center>
-          <div class="card" style="width: 20rem; height: 25rem; box-shadow: 40em;">
+          <div class="card-transparent" style="width: 20rem; height: 25rem; box-shadow: 40em;">
             <div style="font-size: 200px;"> <i class="fa fa-plus-square" aria-hidden="true"></i></div>
             <div class="card-body">
               <center><a href="/medrecord" class="btn btn-primary">CREATE RECORD</a></center>
@@ -88,7 +103,7 @@
       <div class='col'style='box-shadow: 40em;'>
         <br><br>
         <center>
-          <div class="card" style="width: 20rem; height: 25rem; box-shadow: 40em;">
+          <div class="card-transparent" style="width: 20rem; height: 25rem; box-shadow: 40em;">
             <div style="font-size: 200px;"><i class="fa fa-book" aria-hidden="true"></i></div>
             
             <div class="card-body">
@@ -100,7 +115,7 @@
       <div class='col'style='box-shadow: 40em;'>
           <br><br>
           <center>
-            <div class="card" style="width: 20rem; height: 25rem;box-shadow: 40em;;">
+            <div class="card-transparent" style="width: 20rem; height: 25rem;box-shadow: 40em;;">
               <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
               <div style="font-size: 200px;"><i class="fa fa-medkit fa-x-large" aria-hidden="true" ></i></div>
               <div class="card-body">

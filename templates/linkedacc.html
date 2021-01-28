@@ -34,8 +34,9 @@
     
       
       <div>
-        <a class="navbar-brand" href="/back">GO TO DASHBOARD </a>
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        
+       <a class="navbar-brand" href="/back"> GO TO DASHBOARD </a> &nbsp;&nbsp;&nbsp;&nbsp;   
+
         <a class="navbar-brand" href="/logout">LOGOUT </button></a>
       </div>
     </nav>
@@ -67,7 +68,7 @@
        <td>{{ w.level }}</td>
        <td>{{ w.status }}</td>
        <input type="hidden" name="owner" value={{ w.owner}}>
-       <td><button class="btn btn-success" type="submit">
+       <td><button class="btn btn-secondary" type="submit">
          View
        </button></td></tr>
      
@@ -100,7 +101,7 @@
         <td>{{ w.status }}</td>
         <input type="hidden" name="owner" value={{ w.owner}}>
         <input type="hidden" name="owner" value={{ w.guardian}}>
-        <td><button class="btn btn-warning" type="submit">
+        <td><button class="btn btn-secondary" type="submit">
           Remove
         </button></td></tr>
       

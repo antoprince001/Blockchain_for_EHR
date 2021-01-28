@@ -13,22 +13,7 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
   <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td,
-    th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
+    
 
     p,
     ul {
@@ -37,6 +22,14 @@
       letter-spacing: 3px;
       font-style: oblique;
       line-height: 150%;
+    }
+
+    
+    body{
+      background-image: url("/static/img/myacc.jpg");
+      background-size :cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
   </style>
 
@@ -61,15 +54,15 @@
 <br><br>
   <center> 
     
-    <a  class="list-group-item list-group-item-action">
-      <h3>ACCOUNT INFORMATION</h3>
+    <a  class="list-group-item list-group-item-action" style="background-color: #dc3545;">
+     <font color="white"> <h3>ACCOUNT INFORMATION</h3></font>
       </a>
       <center>
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="/static/img/qr.png" alt="Card image cap" width="50%" height="250px">
           <div class="card-body">
             
-            <a href="/qrcode" class="btn btn-primary">SHARE ACCOUNT</a>
+            <a href="/qrcode" class="btn btn-danger">SHARE ACCOUNT</a>
           </div>
         </div>
       </center>
@@ -83,6 +76,8 @@
         <br><br>
       </div>
     </div>--></center>
+    <br><br>
+    <h5>
         <center>
           <table>
             <!-- <tr>
@@ -90,38 +85,41 @@
               <th>VALUE</th>
             </tr> -->
             <tr>
-              <td>FIRST NAME</td>
-              <td>{{ post.first }}</td>
+              <td>FIRST NAME :</td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ post.first }}</td>
             </tr>
             <tr>
-              <td>LNAME</td>
-              <td>{{ post.second }}</td>
+              <td>LNAME :</td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ post.second }}</td>
             </tr>
             <tr>
-              <td>ACCOUNT CREATION</td>
-              <td>{{ post.timestamp }}</td>
+              <td>CREATION :</td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ post.timestamp }}</td>
             </tr>
             <tr>
-                <td>CITY</td>
-                <td>{{ post.city }}</td>
+                <td>CITY :</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ post.city }}</td>
               </tr>
             
             <tr>
-              <td>STATE</td>
-              <td>{{ post.state }}</td>
+              <td>STATE :</td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ post.state }}</td>
               
             </tr>    
           </table>
           <br><br><br><br>
         </center>
+        </h5>
+        
         
 <br><br>
 <center>
-  <div class="container">
+  <div class="container" >
         <div class="list-group-w-50">
-          <a  class="list-group-item list-group-item-action active">
+          <a  class="list-group-item list-group-item-action active" style="background-color: #dc3545;">
           <h3>GUARDIAN  ACCOUNT</h3>
           </a>
+      
           <a href="/addguard" class="list-group-item list-group-item-action">ADD GUARDIAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/add.png"></a>
           <a href="/linkedacc" class="list-group-item list-group-item-action">LINKED ACCOUNTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="/static/img/link.png"></a>
           

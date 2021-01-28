@@ -29,7 +29,12 @@
     tr:nth-child(even) {
       background-color: #dddddd;
     }
-
+    body{
+      background-image: url("/static/img/access.jpg");
+      background-size :cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
     p,
     ul {
       font-family: Arial, Helvetica, sans-serif;
@@ -65,7 +70,7 @@
       <h1>ACCESS LOG</h1> <br><br>
       {% for post in posts %}
       <br>
-      <div class="card w-50 " border=1>
+      <div class="card w-50 " border=1 style="opacity: 0.80;">
         <div class="card-header">
           ACCESS REQUEST
         </div>

@@ -12,7 +12,12 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
   <style>
-
+body{
+      background-image: url("/static/img/guard.jpg");
+      background-size :cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
     p,
     ul {
       font-family: Arial, Helvetica, sans-serif;
@@ -32,8 +37,8 @@
     
       
       <div>
-        <a class="navbar-brand" href="/back">GO TO DASHBOARD </button></a>
-     &nbsp;&nbsp;&nbsp;&nbsp;
+        
+       <a class="navbar-brand" href="/back"> GO TO DASHBOARD </a> &nbsp;&nbsp;&nbsp;&nbsp;   
 
         <a class="navbar-brand" href="/logout">LOGOUT </button></a>
       </div>
@@ -63,7 +68,7 @@
   </div>
 -->
 <br><br>
-  <div class="card text-center">
+  <div class="card-w-50">
     
     <form action='/addguardian' method="POST">
     <div class="card-body">

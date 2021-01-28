@@ -35,7 +35,12 @@
     tr:nth-child(even) {
       background-color: #dddddd;
     }
-
+    body{
+      background-image: url("/static/img/view.jpg");
+      background-size :cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
     button.mbtn {
   padding:0.6em 2em;
   border-radius: 8px;
@@ -89,7 +94,7 @@
          <form action="/display" method="post">
           {% if post._id !='' and post.type!='none' %}
 <center>
-          <div class="card-center">
+          <div class="card w-50 " border=1 style="opacity: 0.90;">
             <h5 class="card-header">RECORD  :  {{post._id}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-success" >View </button>&nbsp;<button formaction="/share" class="btn btn-success" >Share</button></h5> 
           
           

@@ -5,6 +5,7 @@
   <title>Welcome Citizen !</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -23,7 +24,7 @@
     }
 
     body{
-      background : url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRu963t5skZ2TaCtpb5Cbqps8dirt_2EdZXhVpW-w3djHImlRYJ");
+      background-image: url("/static/img/dashbg.jpg");
       background-size :cover;
       background-attachment: fixed;
       background-repeat: no-repeat;
@@ -31,27 +32,39 @@
 
     .card{
       
-      background : url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRu963t5skZ2TaCtpb5Cbqps8dirt_2EdZXhVpW-w3djHImlRYJ");
+      background-image : url("");
       background-size :cover;
       background-attachment: fixed;
       background-repeat: no-repeat;
+      opacity: 0.75;
+      filter: alpha(opacity=75);
      
 
+    }
+
+    #ch{
+      background-color: green;
     }
   </style>
 
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="/" style='font-size: 40px;'>PATREC</a>
+    <nav class="navbar navbar-dark" >
+        <!--<a class="navbar-brand" href="/" style='text-shadow: 4px 4px white;color:black;font-size: 40px;font-weight: 700; '>PATREC</a>-->
+        <div class="container">
+          <h1><a href="/" type="button" class="but" id="ch"><i class="fa fa-home fa" style="color: white;"></i></a></h1></div>
+
         
     
       
-      <div>
-        
-        <a class="navbar-brand" href="/logout">LOGOUT </button></a>
-      </div>
+      
+
+        <div>
+<b>
+        <a class="navbar-brand" href="/logout" style="color: black;">LOGOUT </button></a>
+      </b>
+    </div>
     </nav>
      
 
@@ -60,7 +73,7 @@
   </div> -->
   <br>
 
- <center> <b><h1>DASHBOARD OF {{ session['user'] }}</h1></b></center>
+ <center><i><strong> <b><h1 style="font-weight: 700; text-shadow: 4px 4px white;">DASHBOARD OF {{ session['user'] }}</h1></b></strong></i></center>
   <br>
   <div class='container'>
     <div class='row'>
@@ -68,14 +81,14 @@
         
           <br><br>
           <center>
-            <div class="card" style="width: 15rem; height: 20rem; box-shadow: 40em;">
+            <div class="card-transparent" style="width: 15rem; height: 20rem; box-shadow: 40em;">
               
                 <!--<img src="/static/img/acc.png  " height="266" weight="259" class='card-img-top' height='300'> -->
                 <div style="font-size: 200px;"><i class="fa fa-drivers-license-o fa -4x" aria-hidden="true"></i></div>
               <div class="card-body">
                 
 
-                <center><a href="/patacc" class="btn btn-primary">MY ACCOUNT</a></center>
+                <center><a href="/patacc" class="btn btn-success">MY ACCOUNT</a></center>
               </div>
             </div>
 
@@ -86,11 +99,11 @@
       <div class='col' style='box-shadow: 40em;'>
         <br><br>
         <center>
-          <div class="card" style="width: 15rem; height: 20rem; box-shadow: 40em;">
+          <div class="card-transparent" style="width: 15rem; height: 20rem; box-shadow: 40em;">
             <!--<img src="/static/img/Share.png" class="card-img-top" height="300"'> -->
             <div style="font-size: 200px;"><i class="fa fa-tasks fa -4x" aria-hidden="true"></i></div>
             <div class="card-body">
-              <center><a href="/accesslog" class="btn btn-primary">ACCESS LOG</a></center>
+              <center><a href="/accesslog" class="btn btn-success">ACCESS LOG</a></center>
             </div>
           </div>
         </center>
@@ -101,12 +114,12 @@
        <div class='col'style='box-shadow: 40em;'>
         <br><br>
         <center>
-          <div class="card" style="width: 15rem; height: 20rem; box-shadow: 40em;">
+          <div class="card-transparent" style="width: 15rem; height: 20rem; box-shadow: 40em;">
             <div style="font-size: 200px;"><i class="fa fa-book fa -4x" aria-hidden="true"></i></div>
             
             <div class="card-body">
               <form action='/viewrec' method='POST'>
-              <center><button class="btn btn-primary" type="submit">VIEW RECORDS</button></center>
+              <center><button class="btn btn-success" type="submit">VIEW RECORDS</button></center>
               <input type='hidden' name='owner' value={{ session['user'] }}>
             </form>
             </div>
@@ -120,12 +133,12 @@
       <div class='col'style='box-shadow: 40em;'>
         <br><br>
         <center>
-          <div class="card" style="width: 15rem; height: 20rem;box-shadow: 40em;;">
+          <div class="card-transparent" style="width: 15rem; height: 20rem;box-shadow: 40em;;">
             <!--<img src="/static/img/secure.jpg" class="card-img-top" alt="..." height='300' width='300'>-->
             <div style="font-size: 200px;"><i class="fa fa-medkit fa- 4x" aria-hidden="true" ></i></div>
             <div class="card-body">
               
-              <center><a href="/bookapp" class="btn btn-primary">BOOK APPOINTMENTS</a></center>
+              <center><a href="/bookapp" class="btn btn-success">BOOK APPOINTMENTS</a></center>
             </div>
           </div>
         </center>

@@ -37,5 +37,23 @@ Password : password
 ![image](https://user-images.githubusercontent.com/47826916/128641359-c2aa5e1c-2722-4a7e-b18a-d27ebc205045.png)
 
 
+## Patient Record Access Schema 
+
+![image](https://user-images.githubusercontent.com/47826916/129126551-ffdc286e-606f-4c51-bf50-715637710d7a.png)
+
+## Guardian Mode Access Schema
+
+![image](https://user-images.githubusercontent.com/47826916/129126608-edaf5ab1-e4fe-4826-9062-5556a0950ee5.png)
+
+## Patient Data Blocks
+
+![image](https://user-images.githubusercontent.com/47826916/129126680-9e069c60-ae40-4b86-9ad4-4991175db3a3.png)
+
+## Patient Record Blocks
+
+![image](https://user-images.githubusercontent.com/47826916/129126726-7aa3d8c3-422d-4598-a248-6491dd4277cf.png)
+
+
+
 
 

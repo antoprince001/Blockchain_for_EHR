@@ -1,6 +1,6 @@
 # Electronic Health Record Manager
 
-Implementation of web based software for handling electronic health records using Flask, html, CSS , bootstrap and mongodb to show basic level implementation.
+Implementation of web based software for handling electronic health records using Flask, html, CSS , bootstrap and mongodb to show high level implementation of blockchain.
 
 ![image](https://user-images.githubusercontent.com/47826916/128641182-ebd21ce0-10b9-437f-891b-7a576cf70932.png)
 

@@ -13,7 +13,7 @@ Flask, the micro framework in python is utilized for the implementation.
 
 Information collected is stored in the cloud server (MongoDB) and a block is created with hash based on attributes of the medical record and it also holds the previous hash and timestamp of creation.
 
-Checkout the website at : https://patrec.azurewebsites.net/
+Note : No blockchain implementation is used. A custom highly level blockchain like architecture is developed to replicate the blockchain functionality. 
 
 # Demo login
 

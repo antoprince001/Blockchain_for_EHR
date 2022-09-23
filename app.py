@@ -58,9 +58,9 @@ def check_encrypted_password(password, hashed):
     return pwd_context.verify(password, hashed)
 
 #Mongodb setup
-client = pymongo.MongoClient("mongodb+srv://Antony:A8939469555@blockchainehr-kpbxk.mongodb.net/test?retryWrites=true&w=majority")
-
-mydb=client["Blockchain"]
+client = pymongo.MongoClient("mongodb+srv://Antony:A8939469555p@blockchainehr-kpbxk.mongodb.net/test?retryWrites=true&w=majority")
+#client = pymongo.MongoClient("mongodb+srv://Antony:A8939469555p@blockchainehr.kpbxk.mongodb.net/?retryWrites=true&w=majority")
+mydb=client["newDB"]
 
 mycol=mydb["Blockhead"]
 
